@@ -1,0 +1,32 @@
+Proyecto ==================================================================
+
+Podemos agregar Jetstream a un nuevo proyecto o integralo a uno existente
+
+Para agregarlo desde el inicio ejecutamos
+    laravel new "nombre" --jet
+
+Debemos tener node js instalado
+ejecutamos comandos
+    npm install
+    npm run dev 
+
+Crear la base de datos y definirla en el archivo .env
+
+Ejecutamos las migraciones  
+    php artisan migrate:fresh --seed
+
+Creamos el WebController para administrar las rutas de la página
+    php artisan make:controller WebController
+
+Creamos la carpeta web en resources/views y dentro archivo blade index que será la página principal a partir de ahora
+
+Agregamos el primer método al web controller
+    public function index()
+    {
+        return view('web/index');
+    }
+
+Agregamos la ruta del index en el archivo web de rutas
+    Route::get('/', [WebController::class,'index'])->name('index');
+
+Usamos el layout de guest para la página pública
