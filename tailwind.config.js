@@ -14,6 +14,37 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+
+            colors : {
+                primary: '#3d75f2',
+                secondary: '#dfe7f8',
+                environmental: '#598dff',
+                complementary: '#f2bc3d',
+                shadeWhite: '#f2f2f0',
+                darken: '#323a4d',
+                shadeDark: '#363636'
+            },
+
+            screens: {
+                'xl': {'max': '1279px'},
+                // => @media (max-width: 1279px) { ... }
+          
+                'lg': {'max': '1023px'},
+                // => @media (max-width: 1023px) { ... }
+          
+                'md': {'max': '767px'},
+                // => @media (max-width: 767px) { ... }
+          
+                'sm': {'max': '639px'},
+                // => @media (max-width: 639px) { ... }
+            },
+
+            keyframes: {
+                wiggle: {
+                  'from': { width: 'rotate(-3deg)' },
+                  'to': { transform: 'rotate(3deg)' },
+                }
+            }
         },
     },
 
