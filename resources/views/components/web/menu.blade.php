@@ -2,7 +2,7 @@
     <div class="flex justify-between items-center flex-wrap max-h-full container lg:max-h-full lg:items-center">
         
         <a class="hidden lg:inline" href="#">
-            <img class="inline w-10 select-none my-2.5" src="{{asset('img/logo-min.webp')}}" alt="Logo MUNIMM 9">
+            <img class="inline w-10 select-none my-2.5" src="{{asset('img/logo-min.webp')}}" alt="">
         </a> 
         
         <nav class="lg:hidden">
@@ -18,7 +18,6 @@
                 </li>
             </ul>
         </nav>
-
         <a class="lg:hidden" href="https://munimm.org">
             <img class="inline w-10 select-none my-2.5" src="{{asset('img/logo-min.webp')}}" alt="Logo MUNIMM 9">
         </a>

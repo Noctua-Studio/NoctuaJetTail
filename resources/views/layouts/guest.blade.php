@@ -24,6 +24,7 @@
         
         <main>
             {{ $slot }}
+            {{__('HOLA')}}
         </main>
     </body>
 </html>
