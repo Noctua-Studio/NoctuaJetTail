@@ -30,3 +30,54 @@ Agregamos la ruta del index en el archivo web de rutas
     Route::get('/', [WebController::class,'index'])->name('index');
 
 Usamos el layout de guest para la página pública
+
+
+==============LANG==============
+Los locales deben de ser modificados en 2 archivos de config translatable.php y localized-routes.php
+Migraciones, el comando también crea los modelos
+php artisan make:migration <Migración base> -m
+php artisan make:migration <Migración>-translations -m
+
+la migración base no lleva campos extras
+    id
+    <campos>
+    timestamps
+la -translations lleva las siguientes líneas
+    id
+    *$table->foreignId('<modelo base>_id')->constrained();
+    *$table->string('locale')->index();
+
+    <campos a traducir>(Nombre de imagen no se traduce y no se pone)
+
+    *$table->unique(['<modelo base>_id','locale']);
+
+Pasando a los modelos
+En el modelo base
+--Definiendo la clase 
+    implements TranslatableContract
+--dentro de la clase
+    use HasFactory, Translatable;
+
+    protected $fillable = [<campos que no se traducen>];
+    public $translatedAttributes = [<Campos a traducir>];
+
+En el translations
+    use HasFactory;
+    public $timestamps = false;
+    protected $fillable = [<Campos que se traducen>]; (debe coincidir con el otro modelo $translatedAttributes)
+
+Dentro de los forms 
+Se crean nuevos campos, como ya se tienen los componentes es agregar un foreach de los locales foreach(config('translatable.locales') as $locale)
+y dentro de la parte de name para recopilar los datos
+    name="{{ $locale }}[<Nombre del campo>]"
+
+Dentro del request ej
+    public function rules(){
+        $rules = [
+            'es.title' => 'required'
+        ];
+        foreach(config('translatable.locales') as $locale){
+            $rules[$locale . '.title']= 'string';
+        }
+        return $rules;
+    }
