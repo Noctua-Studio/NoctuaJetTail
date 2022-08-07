@@ -37,13 +37,13 @@ module.exports = {
           
                 'sm': {'max': '639px'},
                 // => @media (max-width: 639px) { ... }
+
+                'xs': {'max': '499px'},
+                // => @media (max-width: 499px) { ... }
             },
 
-            keyframes: {
-                wiggle: {
-                  'from': { width: 'rotate(-3deg)' },
-                  'to': { transform: 'rotate(3deg)' },
-                }
+            animation: {
+                'slidein': 'slidein 1s'
             }
         },
     },

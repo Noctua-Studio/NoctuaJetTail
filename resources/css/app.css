@@ -4,28 +4,45 @@
 
 @layer components {
 
-    .on-hamburger::after{ 
-        transform:rotate(45deg);
-        top:50%;
-        margin-top:-2px;
-        transition: all 0.2s, 0.2s transform 0.4s;
+    @keyframes slidein {
+        from {
+          margin-left: 100%;
+          width: 300%
+        }
+      
+        to {
+          margin-left: 0%;
+          width: 100%;
+        }
     }
 
-    .on-hamburger::before{
-        transform:rotate(-45deg);
-        bottom:50%;
-        margin-bottom:-2px;
-        transition: all 0.2s, 0.2s transform 0.4s;
-    }
+}
 
-    .on-hamburger span{
-        visibility:hidden;
-        transition: opacity 0.4s, visibility 0.4s;
-        opacity:0;
-    }
+.on-hamburger::after{ 
+    transform:rotate(45deg);
+    top:50%;
+    margin-top:-2px;
+    transition: all 0.2s, 0.2s transform 0.4s;
+}
 
-    .scrollbar-menu::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-    }
+.on-hamburger::before{
+    transform:rotate(-45deg);
+    bottom:50%;
+    margin-bottom:-2px;
+    transition: all 0.2s, 0.2s transform 0.4s;
+}
+
+.on-hamburger span{
+    visibility:hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+    opacity:0;
+}
+
+.scrollbar-menu::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.active-flex{
+    display: flex;
 }

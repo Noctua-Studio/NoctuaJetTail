@@ -26,5 +26,7 @@
             {{ $slot }}
             {{__('HOLA')}}
         </main>
+
+        <script src="{{asset('js/menu.js')}}"></script>
     </body>
 </html>
