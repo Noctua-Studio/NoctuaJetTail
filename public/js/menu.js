@@ -4,8 +4,18 @@ const nav = () => {
     const navMenu = document.querySelector('.main-menu__nav ul');
 
     menu.addEventListener('click', ()=>{
-        console.log("Esta vivo");
         navMenu.classList.toggle('active-flex');
+        let header = this.document.getElementById("main-menu");
+        header.classList.toggle("sticky");
+        if(activo){
+            activo=false;
+        }
+        else{
+            activo=true;
+        }
+        if(this.window.scrollY>180){
+            header.classList.toggle("sticky");
+        }
     });
 
 }

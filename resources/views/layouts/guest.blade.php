@@ -16,17 +16,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body class="bg-darken">
 
         <x-web.menu>
 
         </x-web.menu>
         
-        <main>
+        <main >
             {{ $slot }}
             {{__('HOLA')}}
         </main>
 
         <script src="{{asset('js/menu.js')}}"></script>
+        <script src="{{asset('js/lang.js')}}"></script>
     </body>
 </html>
