@@ -22,13 +22,12 @@
         - Nombrar al logo "logo-min.webp"
          -->
         
-        <x-web.menu options="inicio|nosotros|productos|ordenar">
+        <x-web.menu options="inicio|nosotros|productos" optionLeft="ordenar">
 
         </x-web.menu>
         
         <main >
             {{ $slot }}
-            {{__('HOLA')}}
         </main>
 
         <script src="{{asset('js/menu.js')}}"></script>

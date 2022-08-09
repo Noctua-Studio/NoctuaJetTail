@@ -1,15 +1,8 @@
 @props([
-    'options' => 'Inicio'
+    'options' => 'Inicio',
+    'optionLeft'
 ])
 
-@php
-    $menuOptions = explode('|', $options);
-    if(count($menuOptions) > 0)
-    {
-        $last = end($menuOptions);
-    }
-    
-@endphp
 
 <header class="bg-white w-full h-20 transition-all duration-150 ease-linear fixed z-50 shadow-lg md:h-16 max-h-full" id="main-menu"> 
     <div class="w-full h-full max-h-full flex justify-between">
@@ -21,11 +14,11 @@
             
             <nav class="lg:hidden">
                 <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu">
-                    @for ($i = 0; $i < count($menuOptions)-1; $i ++)
+                    @foreach (explode('|', $options) as $option)
                     <li class="inline-block select-none">
-                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" href="/" title="Inicio">{{strtoupper($menuOptions[$i])}}</a>
-                    </li>
-                    @endfor
+                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" href="/" title="Inicio">{{strtoupper($option)}}</a>
+                    </li>   
+                    @endforeach
                 </ul>
             </nav>
 
@@ -37,19 +30,32 @@
                 <div class="flex justify-between items-center gap-x-4">
                     <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
                         <div class="bg-zinc-50 flex items-center justify-center px-3 py-3 rounded-md transition-all ease-linear duration-100 select-none focus:outline-0 hover:bg-shadeWhite hover:text-darken md:mr-0 w-16" id="main-menu__lang-button">
-                            <h3 class="mr-2 font-medium text-sm">ES</h3>
+                            <h3 class="mr-2 font-medium text-sm">{{Str::upper(app()->getLocale())}}</h3>
                             <img class="w-4" src="{{asset('img/chevron-down.svg')}}" alt="">
                         </div>
         
-                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-16 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg" id="main-menu__lang-list">
+                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-30 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg" id="main-menu__lang-list">
                             <ul id="en" class="flex flex-col rounded-sm">
-                                <li class="rounded-t-lg text-sm transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-complementary text-darken p-2 hover:text-white">ES</li>
-                                <li class="rounded-b-lg text-sm transition-all ease-linear duration-100 hover:bg-complementary text-darken p-2 hover:text-white">EN</li>
+                                @foreach (config('localized-routes.supported-locales') as $locale)
+                                    @if ($loop->last)
+                                    <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
+                                        <li class="rounded-b-lg text-sm transition-all ease-linear duration-100 hover:bg-complementary text-darken p-2 hover:text-white">
+                                            {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
+                                        </li>
+                                    </a>
+                                    @else
+                                    <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
+                                        <li class="rounded-t-lg text-sm transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-complementary text-darken p-2 hover:text-white">
+                                            {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
+                                        </li>
+                                    </a>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
         
-                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" key="inscripcion" href="/inscripcion" title="Inscripción">{{strtoupper($last)}}</a>
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" key="inscripcion" href="/inscripcion" title="Inscripción">{{strtoupper($optionLeft)}}</a>
                 </div>
         
                 <div class="bg-zinc-50 px-3 py-3 rounded-md hidden lg:block">
@@ -64,13 +70,13 @@
     <nav class="bg-white main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
         <ul class="hidden m-0 p-0 select-none overflow-auto scrollbar-menu lg:p-4 lg:pb-24 lg:h-screen lg:flex-col lg:items-center lg:justify-evenly lg:animate-slidein">
 
-            @for ($i = 0; $i < count($menuOptions)-1; $i ++)
-            <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:mx-auto lg:text-6xl">
-                <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" key="inicio" href="/" title="Inicio">{{strtoupper($menuOptions[$i])}}</a>
-            </li>
-            @endfor
+            @foreach (explode('|', $options) as $option)
+                <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:mx-auto lg:text-6xl">
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" key="inicio" href="/" title="Inicio">{{strtoupper($option)}}</a>
+                </li> 
+            @endforeach
 
-            <a class="hidden px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-complementary text-3xl hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:block md:w-fit md:px-4 md:mx-auto xs:text-2xl main-menu__main-link2 " key="inscripcion" href="/inscripcion" title="Inscripción">{{strtoupper($last)}}</a>
+            <a class="hidden px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-complementary text-3xl hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:block md:w-fit md:px-4 md:mx-auto xs:text-2xl main-menu__main-link2 " key="inscripcion" href="/inscripcion" title="Inscripción">{{strtoupper($optionLeft)}}</a>
         </ul>
     </nav>
 </header>
