@@ -13,7 +13,6 @@ const langNav = () =>
             }
             this.removeEventListener("scroll", retirar);
         }
-        console.log("Hoa");
         langList.classList.toggle("main-menu__lang-list--visible");
     });
 }

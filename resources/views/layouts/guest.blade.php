@@ -18,7 +18,11 @@
     </head>
     <body class="bg-darken">
 
-        <x-web.menu>
+        <!-- Notas
+        - Nombrar al logo "logo-min.webp"
+         -->
+        
+        <x-web.menu options="inicio|nosotros|productos|ordenar">
 
         </x-web.menu>
         

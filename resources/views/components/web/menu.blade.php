@@ -1,3 +1,12 @@
+@props([
+    'options' => 'Hola'
+])
+
+@php
+    $menuOptions = explode('|', $options);
+    $last = end($menuOptions);
+@endphp
+
 <header class="bg-white w-full h-20 transition-all duration-150 ease-linear fixed z-50 shadow-lg md:h-16 max-h-full" id="main-menu"> 
     <div class="w-full h-full max-h-full flex justify-between">
         <div class="nta-container w-full flex flex-nowrap justify-between items-center max-h-full lg:max-h-full lg:items-center gap-4 realative">
@@ -8,15 +17,11 @@
             
             <nav class="lg:hidden">
                 <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu">
+                    @for ($i = 0; $i < count($menuOptions)-1; $i ++)
                     <li class="inline-block select-none">
-                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" key="inicio" href="/" title="Inicio">INICIO</a>
+                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" href="/" title="Inicio">{{strtoupper($menuOptions[$i])}}</a>
                     </li>
-                    <li class="inline-block select-none">
-                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" key="evento" href="/evento" title="Evento">EVENTO</a>
-                    </li>
-                    <li class="inline-block select-none">
-                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" key="comites" href="/comites" title="Comités">COMITÉS</a>
-                    </li>
+                    @endfor
                 </ul>
             </nav>
 
@@ -40,7 +45,7 @@
                         </div>
                     </div>
         
-                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" key="inscripcion" href="/inscripcion" title="Inscripción">INSCRÍBETE</a>
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" key="inscripcion" href="/inscripcion" title="Inscripción">{{strtoupper($last)}}</a>
                 </div>
         
                 <div class="bg-zinc-50 px-3 py-3 rounded-md hidden lg:block">
@@ -52,7 +57,7 @@
         </div>
         
     </div>
-    <nav class="bg-white main-menu__nav block lg:w-full text-center my-0 mx-auto">
+    <nav class="bg-white main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
         <ul class="hidden m-0 p-0 select-none overflow-auto scrollbar-menu lg:p-4 lg:h-screen lg:flex-col lg:items-center lg:justify-start lg:animate-slidein">
             <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:my-12 lg:mx-auto lg:text-8xl md:my-5 md:mx-auto">
                 <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" key="inicio" href="/" title="Inicio">INICIO</a>
