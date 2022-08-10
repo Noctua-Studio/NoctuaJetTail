@@ -22,7 +22,7 @@
         - Nombrar al logo "logo-min.webp"
          -->
         
-        <x-web.menu options="inicio|nosotros|productos" optionLeft="ordenar">
+        <x-web.menu>
 
         </x-web.menu>
         

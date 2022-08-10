@@ -22,14 +22,14 @@ return [
      *
      * 'omit_url_prefix_for_locale' => 'en',
      */
-    'omit_url_prefix_for_locale' => null,
+    'omit_url_prefix_for_locale' => 'es',
 
     /**
      * Set this option to true if you want to redirect
      * unlocalized URL's to their localized version.
      * You need to register the fallback route for this to work.
      */
-    'redirect_to_localized_urls' => false,
+    'redirect_to_localized_urls' => true,
 
     /**
      * The status code when redirecting to localized URL's.

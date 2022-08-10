@@ -4,6 +4,7 @@ use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 use CodeZero\LocalizedRoutes\Controller\FallbackController;
 use CodeZero\LocalizedRoutes\Middleware\SetLocale;
+use Illuminate\Support\Facades\Lang;
 
 
 /*
@@ -16,8 +17,10 @@ use CodeZero\LocalizedRoutes\Middleware\SetLocale;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::localized(function(){
     Route::get('/', [WebController::class,'index'])->name('index');
+    Route::get(lang::uri('/ordenar'),[WebController::class,'order'])->name('order');
 
     Route::middleware([
         'auth:sanctum',
