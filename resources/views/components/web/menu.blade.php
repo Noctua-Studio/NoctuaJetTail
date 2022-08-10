@@ -29,23 +29,23 @@
             <div class="flex flex-nowrap items-center gap-x-4">
                 <div class="flex justify-between items-center gap-x-4">
                     <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
-                        <div class="bg-zinc-50 flex items-center justify-center px-3 py-3 rounded-md transition-all ease-linear duration-100 select-none focus:outline-0 hover:bg-shadeWhite hover:text-darken md:mr-0 w-16" id="main-menu__lang-button">
+                        <div class="bg-zinc-50 flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 select-none focus:outline-0 hover:bg-shadeWhite hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
                             <h3 class="mr-2 font-medium text-sm">{{Str::upper(app()->getLocale())}}</h3>
                             <img class="w-4" src="{{asset('img/chevron-down.svg')}}" alt="">
                         </div>
         
-                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-30 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg" id="main-menu__lang-list">
+                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center" id="main-menu__lang-list">
                             <ul id="en" class="flex flex-col rounded-sm">
                                 @foreach (config('localized-routes.supported-locales') as $locale)
                                     @if ($loop->last)
                                     <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
-                                        <li class="rounded-b-lg text-sm transition-all ease-linear duration-100 hover:bg-complementary text-darken p-2 hover:text-white">
+                                        <li class="rounded-b-lg text-xs transition-all ease-linear duration-100 hover:bg-complementary text-darken p-2 hover:text-white">
                                             {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
                                         </li>
                                     </a>
                                     @else
                                     <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
-                                        <li class="rounded-t-lg text-sm transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-complementary text-darken p-2 hover:text-white">
+                                        <li class="rounded-t-lg text-xs transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-complementary text-darken p-2 hover:text-white">
                                             {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
                                         </li>
                                     </a>
