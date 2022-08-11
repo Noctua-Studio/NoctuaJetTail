@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Lang;
 */
 
 Route::localized(function(){
-    Route::get('/', [WebController::class,'index'])->name('index');
+    Route::get('/', [WebController::class,'index'])->name('home');
+    Route::get(lang::uri('/nosotros'),[WebController::class,'us'])->name('us');
+    Route::get(lang::uri('/productos'),[WebController::class,'products'])->name('products');
     Route::get(lang::uri('/ordenar'),[WebController::class,'order'])->name('order');
 
     Route::middleware([

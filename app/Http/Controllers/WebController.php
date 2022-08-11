@@ -11,8 +11,18 @@ class WebController extends Controller
         return view('web.index');
     }
 
+    public function us()
+    {
+        return view('web.us');
+    }
+
+    public function products()
+    {
+        return view('web.products');
+    }
+
     public function order()
     {
-        return view('web.index');
+        return view('web.order');
     }
 }

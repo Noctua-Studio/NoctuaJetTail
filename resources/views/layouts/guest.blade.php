@@ -22,7 +22,7 @@
         - Nombrar al logo "logo-min.webp"
          -->
         
-        <x-web.menu>
+        <x-web.menu link="http://127.0.0.1:8000/">
 
         </x-web.menu>
         
