@@ -24,29 +24,37 @@
                 <img class="inline w-12 py-1 select-none my-2.5" src="{{asset('img/logo-min.webp')}}" alt="Logo MUNIMM 9">
             </a>
             
-            <div class="flex flex-nowrap items-center gap-x-4">
-                <div class="flex justify-between items-center gap-x-4">
+            <div class="flex flex-nowrap items-center gap-x-4 select-none">
+                <div class="flex justify-between items-center gap-x-4 select-none">
                     <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
-                        <div class="bg-zinc-50 flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 select-none focus:outline-0 hover:bg-shadeWhite hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
-                            <h3 class="mr-2 font-medium text-sm">{{Str::upper(app()->getLocale())}}</h3>
+                        <div class="bg-zinc-50 flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none hover:bg-shadeWhite hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
+                            <h3 class="mr-2 font-medium text-sm select-none">{{Str::upper(app()->getLocale())}}</h3>
                             <img class="w-4" src="{{asset('img/chevron-down.svg')}}" alt="">
                         </div>
         
-                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center" id="main-menu__lang-list">
+                        <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center select-none" id="main-menu__lang-list">
                             <ul id="en" class="flex flex-col rounded-sm">
                                 @foreach (config('localized-routes.supported-locales') as $locale)
                                     @if ($loop->last)
                                     <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
-                                        <li class="rounded-b-lg text-xs transition-all ease-linear duration-100 hover:bg-complementary text-darken p-2 hover:text-white">
+                                        <li class="rounded-b-lg text-xs transition-all ease-linear duration-100 hover:bg-environmental text-darken p-3 hover:text-white">
+                                            {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
+                                        </li>
+                                    </a>
+                                    @else
+                                    @if ($loop->first)
+                                    <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
+                                        <li class="rounded-t-lg text-xs transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-environmental text-darken p-3 hover:text-white">
                                             {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
                                         </li>
                                     </a>
                                     @else
                                     <a href="{{route(Route::currentRouteName(),[],true,$locale)}}">
-                                        <li class="rounded-t-lg text-xs transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-complementary text-darken p-2 hover:text-white">
+                                        <li class="text-xs transition-all ease-linear duration-100 border-b-2 border-solid border-slate-300 hover:bg-environmental text-darken p-3 hover:text-white">
                                             {{STR::upper(config('localized-routes.locales-name-native.'.$locale))}}
                                         </li>
                                     </a>
+                                    @endif
                                     @endif
                                 @endforeach
                             </ul>
@@ -70,7 +78,7 @@
 
             @foreach (config('layout.menuOptions') as $option)
                 <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:mx-auto lg:text-6xl">
-                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" href="{{config('layout.menuRouteNames.'.$option)}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
                 </li> 
             @endforeach
 
