@@ -1,4 +1,3 @@
-
 const langNav = () =>
 {
     const langButton = document.getElementById("main-menu__lang-button");

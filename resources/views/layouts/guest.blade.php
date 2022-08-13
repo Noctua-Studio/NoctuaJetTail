@@ -22,15 +22,15 @@
         - Nombrar al logo "logo-min.webp"
          -->
         
-        <x-web.menu link="http://127.0.0.1:8000/">
+        <x-web.menu-center link="http://127.0.0.1:8000/">
 
-        </x-web.menu>
+        </x-web.menu-center>
         
         <main >
             {{ $slot }}
         </main>
 
-        <script src="{{asset('js/menu.js')}}"></script>
-        <script src="{{asset('js/lang.js')}}"></script>
+        <script src="{{asset('js/menu/menu-center.js')}}"></script>
+        <script src="{{asset('js/menu/lang-list.js')}}"></script>
     </body>
 </html>

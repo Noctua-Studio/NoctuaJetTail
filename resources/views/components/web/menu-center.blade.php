@@ -1,3 +1,12 @@
+<!-- Notas
+    - Nombrar al logo "logo-min.webp"
+    - Requiere 2 scripts: menu-center.js y lang-list.js
+    - Para agregar opciones ir a config/layout.php
+    - Para el correcto funcionamiento de las rutas traducidas agregar las rutas en routes/web.php dentro de las rutas localizadas
+
+    BORRAR NOTAS AL UTILIZAR
+-->
+
 @props([
     'link' => '#'
 ])
