@@ -16,18 +16,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-darken">
-
-        <!-- Notas
-        - Nombrar al logo "logo-min.webp"
-         -->
+    <body class="bg-slate-200">
         
-        <x-web.menu-center link="http://127.0.0.1:8000/">
+        <x-web.menu-center link="http://127.0.0.1:8000/" transparent="true">
 
         </x-web.menu-center>
         
         <main >
             {{ $slot }}
+            
         </main>
 
         <script src="{{asset('js/menu/menu-center.js')}}"></script>

@@ -3,15 +3,18 @@
     - Requiere 2 scripts: menu-center.js y lang-list.js
     - Para agregar opciones ir a config/layout.php
     - Para el correcto funcionamiento de las rutas traducidas agregar las rutas en routes/web.php dentro de las rutas localizadas
+    - Se incluyen 2 parámetros, uno para agregar el link al que nos enviará el logo principal y el otro para indicar si queremos agregar el botón de idiomas
 
     BORRAR NOTAS AL UTILIZAR
 -->
 
 @props([
-    'link' => '#'
+    'link' => '#',
+    'lang' => 'true',
+    'transparent' => 'false'
 ])
 
-<header class="bg-white w-full h-20 transition-all duration-150 ease-linear fixed z-50 shadow-lg md:h-16 max-h-full" id="main-menu"> 
+<header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} w-full h-20 transition-all duration-150 ease-linear fixed z-50 md:h-16 max-h-full" id="main-menu"> 
     <div class="w-full h-full max-h-full flex justify-between">
         <div class="nta-container w-full flex flex-nowrap justify-between items-center max-h-full lg:max-h-full lg:items-center gap-4 realative">
             
@@ -35,10 +38,12 @@
             
             <div class="flex flex-nowrap items-center gap-x-4 select-none">
                 <div class="flex justify-between items-center gap-x-4 select-none">
+                    
+                    @if ($lang == 'true')
                     <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
-                        <div class="bg-zinc-50 flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none hover:bg-shadeWhite hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
+                        <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
                             <h3 class="mr-2 font-medium text-sm select-none">{{Str::upper(app()->getLocale())}}</h3>
-                            <img class="w-4" src="{{asset('img/chevron-down.svg')}}" alt="">
+                            <img class="w-4 hover:fill-transparent" src="{{asset('img/chevron-down.svg')}}" alt="">
                         </div>
         
                         <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center select-none" id="main-menu__lang-list">
@@ -69,11 +74,12 @@
                             </ul>
                         </div>
                     </div>
-        
+                    @endif
+
                     <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{__(config('layout.manuLangKeys.'.config('layout.optionRight')))}}</a>
                 </div>
         
-                <div class="bg-zinc-50 px-3 py-3 rounded-md hidden lg:block hover:bg-shadeWhite main-menu__icon cursor-pointer">
+                <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} px-3 py-3 rounded-md hidden lg:block main-menu__icon cursor-pointer" id="burger-background">
                     <button class="hamburger hidden w-8 h-[20px] border-none bg-transparent relative cursor-pointer focus:outline-none after:w-full after:h-1 after:rounded-full after:absolute after:left-0 after:top-0 after:mt-0 after:bg-primary content-none before:w-full before:h-1 before:rounded-full before:absolute before:left-0 before:bottom-0 before:mb-0 before:bg-primary lg:block lg:cursor-pointer lg:select-none after:transition-all after:duration-300 before:transition-all before:duration-300 ">
                     </button>
                 </div>
@@ -83,7 +89,7 @@
         
     </div>
     <nav class="bg-white main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
-        <ul class="hidden m-0 p-0 select-none overflow-auto scrollbar-menu lg:p-4 lg:pb-24 lg:h-screen lg:flex-col lg:items-center lg:justify-evenly lg:animate-slidein">
+        <ul class="hidden m-0 p-0 select-none overflow-hidden scrollbar-menu lg:p-4 lg:pb-24 lg:h-screen lg:flex-col lg:items-center lg:justify-evenly lg:animate-slidein">
 
             @foreach (config('layout.menuOptions') as $option)
                 <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:mx-auto lg:text-6xl">
