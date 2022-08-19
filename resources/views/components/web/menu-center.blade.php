@@ -11,7 +11,8 @@
 @props([
     'link' => '#',
     'lang' => 'true',
-    'transparent' => 'false'
+    'transparent' => 'false',
+    'contrast' => 'false'
 ])
 
 <header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} w-full h-20 transition-all duration-150 ease-linear fixed z-50 md:h-16 max-h-full" id="main-menu"> 
@@ -26,7 +27,7 @@
                 <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu">
                     @foreach (config('layout.menuOptions') as $option)
                     <li class="inline-block select-none">
-                        <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
+                        <a class="{{$contrast == 'true' ? 'contrast text-white' : 'text-darken'}} block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium  text-base hover:text-primary" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
                     </li>   
                     @endforeach
                 </ul>
@@ -41,9 +42,10 @@
                     
                     @if ($lang == 'true')
                     <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
-                        <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none hover:text-darken md:mr-0 w-20" id="main-menu__lang-button">
+                        <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$contrast == 'true' ? 'text-white hover:text-secondary' : 'text-darken hover:text-primary'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none md:mr-0 w-20" id="main-menu__lang-button">
                             <h3 class="mr-2 font-medium text-sm select-none">{{Str::upper(app()->getLocale())}}</h3>
-                            <img class="w-4 hover:fill-transparent" src="{{asset('img/chevron-down.svg')}}" alt="">
+                            
+                            <i class="bi bi-chevron-down w-4"></i>
                         </div>
         
                         <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center select-none" id="main-menu__lang-list">
@@ -88,7 +90,7 @@
         </div>
         
     </div>
-    <nav class="bg-white main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
+    <nav class="bg-inherit  main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
         <ul class="hidden m-0 p-0 select-none overflow-hidden scrollbar-menu lg:p-4 lg:pb-24 lg:h-screen lg:flex-col lg:items-center lg:justify-evenly lg:animate-slidein">
 
             @foreach (config('layout.menuOptions') as $option)

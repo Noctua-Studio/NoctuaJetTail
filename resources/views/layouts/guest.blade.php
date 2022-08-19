@@ -11,14 +11,16 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
         <link rel="shortcut icon" href="{{asset('img/ico/logo-min.ico')}}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-slate-200">
+    <body class="bg-slate-900">
         
-        <x-web.menu-center link="http://127.0.0.1:8000/" transparent="true">
+        <x-web.menu-center link="http://127.0.0.1:8000/" transparent="true" lang="true" contrast="true">
 
         </x-web.menu-center>
         

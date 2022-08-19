@@ -6,58 +6,78 @@ const nav = () => {
     let header = this.document.getElementById("main-menu");
     const langButton = document.getElementById("main-menu__lang-button");
     const burgerBackground = document.getElementById("burger-background");
-
-
+    
+    const whiteText = document.querySelectorAll(".contrast");
+    
     menu.addEventListener('click', ()=>{
         navMenu.classList.toggle('active-flex');
-        
         burger.classList.toggle("on-hamburger");
-        console.log(activo);
-        if(activo && this.window.scrollY>180)
+
+        if(document.querySelector('.transparent') != null)
         {
-            menuSticky(false);
-            activo=false;
-            console.log("Menu blanco 1");
-        }
-        else if(activo){
-            menuSticky(true);
-            activo=false;
-            console.log("Menu transparente 2");
-            
-        }
-        else{
-            menuSticky(false);
-            activo=true;
-            console.log("Menu blanco 3");
+            if(activo && this.window.scrollY>180)
+            {
+                menuSticky(false);
+                activo=false;
+            }
+            else if(activo){
+                menuSticky(true);
+                activo=false;
+            }
+            else{
+                menuSticky(false);
+                activo=true;
+            }
         }
     });
     
-    addEventListener("scroll", function(){
-
-        if(this.window.scrollY < 180)
+    if(document.querySelector('.transparent') != null)
+    {
+        if(document.querySelector('.contrast') != null)
         {
-            if(activo)
-            {
-                menuSticky(false);
-                console.log(this.window.scrollY);
-                console.log("Menu blanco 2.1");
-            }
-            else
-            {
-                menuSticky(true);
-                console.log(this.window.scrollY);
-                console.log("Menu transparent 2.2");
-            }
+            addEventListener("scroll", function(){
 
+                if(this.window.scrollY < 180)
+                {
+                    if(activo)
+                    {
+                        textContrast(false);
+                        menuSticky(false);
+                    }
+                    else
+                    {
+                        textContrast(true);
+                        menuSticky(true);
+                    }
+                }
+                else{
+                    textContrast(false);
+                    menuSticky(false);
+                }
+            });
         }
         else{
-            menuSticky(false);
-            console.log(this.window.scrollY);
-            console.log("Menu blanco 2.1");
+            addEventListener("scroll", function(){
+
+                if(this.window.scrollY < 180)
+                {
+                    if(activo)
+                    {
+                        menuSticky(false);
+                    }
+                    else
+                    {
+                        menuSticky(true);
+                    }
+                }
+                else{
+                    menuSticky(false);
+                }
+            });
         }
-
-    });
-
+        
+    }
+    
     const superToggle = (object, classes, toggle = true) => {
         if(toggle)
         {
@@ -70,20 +90,31 @@ const nav = () => {
                 object.classList.remove(element);
             });
         }
-        
     }
 
     const menuSticky = (transparent) => {
         superToggle(header,['bg-white', 'shadow-lg'], !transparent);
         superToggle(header,['bg-transparent'], transparent);
 
-        superToggle(langButton,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
-        superToggle(langButton,['bg-transparent'], transparent);
-
         superToggle(burgerBackground,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
         superToggle(burgerBackground,['bg-transparent'], transparent);
+
+        if(langButton != null)
+        {
+            superToggle(langButton,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
+            superToggle(langButton,['bg-transparent'], transparent);
+        }
     }
 
+    const textContrast = (transparent) =>{
+        whiteText.forEach(element => {
+            superToggle(element, ['text-white'], transparent);
+            superToggle(element, ['text-darken'], !transparent);
+        });
+
+        superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
+        superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
+    }
 }
 nav();
 
