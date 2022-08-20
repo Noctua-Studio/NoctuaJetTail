@@ -19,14 +19,24 @@ const nav = () => {
             {
                 menuSticky(false);
                 activo=false;
+
+                if(langButton != null) textContrast(false,true);
+
+                
             }
             else if(activo){
                 menuSticky(true);
                 activo=false;
+
+                if(langButton != null) textContrast(true,true);
+
+                
             }
             else{
                 menuSticky(false);
                 activo=true;
+
+                if(langButton != null) textContrast(false,true);
             }
         }
     });
@@ -106,14 +116,18 @@ const nav = () => {
         }
     }
 
-    const textContrast = (transparent) =>{
+    const textContrast = (transparent, ret = false) =>{
+        
+        superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
+        superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
+
+        if(ret) return;
+
         whiteText.forEach(element => {
             superToggle(element, ['text-white'], transparent);
             superToggle(element, ['text-darken'], !transparent);
         });
 
-        superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
-        superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
     }
 }
 nav();
