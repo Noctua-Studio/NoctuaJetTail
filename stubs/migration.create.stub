@@ -1,0 +1,51 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    protected $tableName="{{ table }}";
+    protected $translationsTableName="{{ table }}_translations";
+    protected $primaryKey="{{ table }}_id";
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create($this->tableName, function (Blueprint $table) {
+            $table->id();
+
+            //table columns
+
+            $table->timestamps();
+        });
+
+        if (Schema::hasTable($this->tableName)) {
+            Schema::create($this->translationsTableName, function (Blueprint $table) {
+                $table->id();
+                $table->foreignId($this->primaryKey)->constrained();
+                $table->string('locale')->index();
+
+                //Table columns
+
+                $table->unique([$this->primaryKey,'locale']);
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists($this->tableName);
+        Schema::dropIfExists($this->translationsTableName);
+    }
+};

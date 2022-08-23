@@ -69,7 +69,7 @@ En el translations
 Dentro de los forms 
 Se crean nuevos campos, como ya se tienen los componentes es agregar un foreach de los locales foreach(config('translatable.locales') as $locale)
 y dentro de la parte de name para recopilar los datos
-    name="{{ $locale }}[<Nombre del campo>]"
+    name="<Nombre del campo>:{{ $locale }}"
 
 Dentro del request ej
     public function rules(){
@@ -81,3 +81,6 @@ Dentro del request ej
         }
         return $rules;
     }
+
+Para crear los archivos de modelo, migración, controller y requests el siguiente comando
+php artisan make:model {{model}} -crRm

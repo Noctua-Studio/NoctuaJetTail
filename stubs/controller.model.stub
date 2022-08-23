@@ -1,0 +1,123 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ namespacedRequests }}
+use File;
+
+class {{ class }} extends Controller
+{
+
+    protected $storage="storage/{{modelVariable}}s/";
+    protected $variableS={{modelVariable}};
+    protected $variableP="{{modelVariable}}s";
+    protected $viewRoutes=[
+        'index'   =>  'admin.edition.{{modelVariable}}s.index',
+        'create'  =>  'admin.edition.{{modelVariable}}s.create',
+        'edit'    =>  'admin.edition.{{modelVariable}}s.edit',
+        'show'    =>  'admin.edition.{{modelVariable}}s.show',
+    ];
+    protected $files=[
+        '',
+    ];
+
+
+    public function index()
+    {
+        $data={{ model }}::all();
+        return view($this->viewRoutes['index'])->with(
+            [
+                $this->variableP=>$data
+            ]
+        );
+    }
+
+    public function create()
+    {
+        return view($this->viewRoutes['create']);
+    }
+
+    public function store({{ storeRequest }} $request)
+    {
+        $data = $request->all();
+
+        foreach($this->files as $file){
+            $newFile=$request->file($file);
+            $extension=$newFile->getClientOriginalExtension();
+            $fileName=$file.date('YmdHis').'.'.$extension;
+            $newFile->move($this->storage, $fileName);
+            $data[$file]=$fileName;
+        }
+
+        {{model}}::create($data);
+
+        return redirect()->action([{{class}}::class,'index']);
+    }
+
+    public function show($id)
+    {
+        $data = {{model}}::find($id);
+        return view($this->viewRoutes['show'])->with(
+            [
+                $this->variableS=>$data
+            ]
+        );
+    }
+
+    public function edit($id)
+    {
+        $data = {{model}}::find($id);
+        return view($this->viewRoutes['edit'])->with(
+            [
+                $this->variableS=>$data
+            ]
+        );
+    }
+
+
+    public function update({{ updateRequest }} $request, $id)
+    {
+        $input=$request->all();
+        $data={{model}}::find($id);
+
+        foreach($this->files as $file){
+            if($request->hasFile($file))
+            {
+                $oldFile=$this->storage.$data->{$file};
+                File::delete(public_path($oldFile));
+                
+                $newFile=$request->file($file);
+                $extension=$newFile->getClientOriginalExtension();
+                //Nombre de imagen en base de datos
+                $fileName=$file.date('YmdHis').'.'.$extension;
+                
+                $newFile->move($this->storage, $fileName);
+                $input[$file]=$fileName;
+            }
+            else{
+                unset($input[$file]);
+            }
+        }
+
+        $data->update($input);
+
+        return redirect()->action([{{class}}::class,'index']);
+    }
+
+    public function destroy($id)
+    {
+        $data={{model}}::find($id);
+
+        foreach($this->files as $file){
+            $delete=$this->storage.$data->{$file};
+            File::delete($delete);
+        }
+
+        $data->deleteTranslations();
+        $data->delete();
+
+        return redirect()->to(action([{{class}}::class,'index']));
+    }
+}

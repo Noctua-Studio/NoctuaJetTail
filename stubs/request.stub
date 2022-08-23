@@ -1,0 +1,39 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class {{ class }} extends FormRequest
+{
+
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        $rules=[
+
+        ];
+
+        foreach(config('translatable.locales') as $locale){
+            $rules['name:'.$locale] = '';
+        }
+
+        return $rules;
+    }
+
+    public function attributes()
+    {
+        $attributes = [
+            '' => '',
+        ];
+        foreach(config('translatable.locales') as $locale){
+            $attributes['name:'.$locale] = 'Nombre';
+        }
+
+        return $attributes;
+    }
+}
