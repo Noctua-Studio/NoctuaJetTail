@@ -44,6 +44,11 @@
     display: flex;
 }
 
+.active-block
+{
+    display: block;
+}
+
 .main-menu__lang-list--visible{
     opacity:1;
     display: block;
