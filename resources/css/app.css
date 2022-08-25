@@ -4,6 +4,7 @@
 
 @layer components {
 
+    /* menu-center =======================*/
     @keyframes slidein {
         from {
           margin-left: 100%;
@@ -17,6 +18,8 @@
     }
 
 }
+
+/* menu-center =======================*/
 
 .on-hamburger::after{ 
     transform:rotate(45deg);

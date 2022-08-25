@@ -18,12 +18,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-slate-900">
+    <body class="bg-slate-200">
         
-        <x-web.menu-center link="http://127.0.0.1:8000/" transparent="true" lang="true" contrast="true">
+    
+        {{-- <x-web.menu-center link="http://127.0.0.1:8000/" transparent="true" lang="true" contrast="false">
 
-        </x-web.menu-center>
+        </x-web.menu-center> --}}
         
+
+        <x-web.menu-basic>
+
+        </x-web.menu-basic>
+
         <main >
             {{ $slot }}
             
