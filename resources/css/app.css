@@ -17,6 +17,18 @@
         }
     }
 
+    @keyframes slidein2 {
+        from {
+          margin-left: 20%;
+          width: 300%
+        }
+      
+        to {
+          margin-left: 0%;
+          width: 100%;
+        }
+    }
+
 }
 
 /* menu-center =======================*/
@@ -46,7 +58,7 @@
 
 .active-block
 {
-    display: block;
+    display: block !important;
 }
 
 .main-menu__lang-list--visible{

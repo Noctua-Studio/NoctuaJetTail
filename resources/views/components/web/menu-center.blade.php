@@ -12,7 +12,8 @@
     'link' => '#',
     'lang' => 'true',
     'transparent' => 'false',
-    'contrast' => 'false'
+    'contrast' => 'false',
+    'animate' => 'true'
 ])
 
 <header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} w-full h-20 transition-all duration-150 ease-linear fixed z-50 md:h-16 max-h-full" id="main-menu"> 
@@ -24,7 +25,7 @@
             </a> 
 
             <nav class="lg:hidden">
-                <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu">
+                <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu {{$animate == 'true' ? 'animate-slidein duration-100' : ''}}">
                     @foreach (config('layout.menuOptions') as $option)
                     <li class="inline-block select-none">
                         <a class="{{$contrast == 'true' ? 'contrast text-white' : 'text-darken'}} block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium  text-base hover:text-primary" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
@@ -33,7 +34,7 @@
                 </ul>
             </nav>
 
-            <a class="lg:hidden absolute left-[calc(50%-24px)]" href="{{$link}}">
+            <a class="lg:hidden absolute left-[calc(50%-24px)] {{$animate == 'true' ? 'animate-slidein2 duration-100' : ''}}" href="{{$link}}">
                 <img class="inline w-12 py-1 select-none my-2.5" src="{{asset('img/logo-min.webp')}}" alt="Logo MUNIMM 9">
             </a>
             
@@ -41,7 +42,7 @@
                 <div class="flex justify-between items-center gap-x-4 select-none">
                     
                     @if ($lang == 'true')
-                    <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
+                    <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit {{$animate == 'true' ? 'animate-slidein duration-100' : ''}}">
                         <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$contrast == 'true' ? 'text-white hover:text-secondary' : 'text-darken hover:text-primary'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none md:mr-0 w-20" id="main-menu__lang-button">
                             <h3 class="mr-2 font-medium text-sm select-none">{{Str::upper(app()->getLocale())}}</h3>
                             
