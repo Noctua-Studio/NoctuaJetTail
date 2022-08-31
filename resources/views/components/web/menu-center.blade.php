@@ -82,7 +82,7 @@
                     <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{__(config('layout.manuLangKeys.'.config('layout.optionRight')))}}</a>
                 </div>
         
-                <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} px-3 py-3 rounded-md hidden lg:block main-menu__icon cursor-pointer" id="burger-background">
+                <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$animate == 'true' ? 'animate-slidein duration-100' : ''}} px-3 py-3 rounded-md hidden lg:block main-menu__icon cursor-pointer" id="burger-background">
                     <button class="hamburger hidden w-8 h-[20px] border-none bg-transparent relative cursor-pointer focus:outline-none after:w-full after:h-1 after:rounded-full after:absolute after:left-0 after:top-0 after:mt-0 after:bg-primary content-none before:w-full before:h-1 before:rounded-full before:absolute before:left-0 before:bottom-0 before:mb-0 before:bg-primary lg:block lg:cursor-pointer lg:select-none after:transition-all after:duration-300 before:transition-all before:duration-300 ">
                     </button>
                 </div>
@@ -91,7 +91,7 @@
         </div>
         
     </div>
-    <nav class="bg-inherit  main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
+    <nav class="bg-inherit main-menu__nav hidden lg:block lg:w-full text-center my-0 mx-auto">
         <ul class="hidden m-0 p-0 select-none overflow-hidden scrollbar-menu lg:p-4 lg:pb-24 lg:h-screen lg:flex-col lg:items-center lg:justify-evenly lg:animate-slidein">
 
             @foreach (config('layout.menuOptions') as $option)

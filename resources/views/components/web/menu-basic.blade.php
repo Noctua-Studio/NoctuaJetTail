@@ -7,15 +7,15 @@
 ])
 
 <header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} main-menu w-full left-0 top-0 h-20 transition-all duration-150 ease-linear fixed z-50 md:h-16 max-h-full" id="main-menu"> 
-    <div class="w-full h-full max-h-full flex justify-between items-center">
-    <div class="main-menu__container nta-container flex justify-between items-center min-h-[inherit] max-h-full w-full h-full">
+    <div class="w-full h-full max-h-full flex justify-between items-center {{$animate == 'true' ? 'animate-slidein duration-1000 ease-in-out' : ''}}">
+    <div class="main-menu__container nta-container flex justify-between items-center min-h-[inherit] max-h-full w-full h-full ">
 
         
-        <a class="main-menu__alogo outline-none" href="/">
+        <a class="main-menu__alogo outline-none" href="{{$link}}">
             <img class="inline w-12 min-w-[48px] select-none my-2.5 md:w-10 md:min-w-[40px]" src="{{asset('img/logo-min.webp')}}" alt="Noctua logo">
         </a>
         
-        <div class="flex justify-end items-center h-full gap-6 animate-slidein duration-150">
+        <div class="flex w-fit justify-center items-center h-full gap-6  max-w-fit">
         @if ($lang == 'true')
         <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit {{$animate == 'true' ? '' : ''}}">
             <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$contrast == 'true' ? 'text-white hover:text-secondary' : 'text-darken hover:text-primary'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none md:mr-0 w-20" id="main-menu__lang-button">
