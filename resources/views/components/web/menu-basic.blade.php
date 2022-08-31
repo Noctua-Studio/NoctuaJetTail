@@ -1,12 +1,12 @@
 @props([
     'link' => '#',
     'lang' => 'true',
-    'transparent' => 'false',
+    'transparent' => 'true',
     'contrast' => 'false',
     'animate'=> 'true'
 ])
 
-<header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} main-menu w-full left-0 top-0 h-20 transition-all duration-150 ease-linear fixed z-50 md:h-16 max-h-full" id="main-menu"> 
+<header class="{{$transparent == 'true' ? 'transparent bg-transparent' : 'bg-white shadow-lg'}} main-menu w-full left-0 top-0 h-20 transition-all duration-150 ease-linear fixed z-30 md:h-16 max-h-full" id="main-menu"> 
     <div class="w-full h-full max-h-full flex justify-between items-center {{$animate == 'true' ? 'animate-slidein duration-1000 ease-in-out' : ''}}">
     <div class="main-menu__container nta-container flex justify-between items-center min-h-[inherit] max-h-full w-full h-full ">
 
@@ -17,14 +17,14 @@
         
         <div class="flex w-fit justify-center items-center h-full gap-6  max-w-fit">
         @if ($lang == 'true')
-        <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit {{$animate == 'true' ? '' : ''}}">
-            <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$contrast == 'true' ? 'text-white hover:text-secondary' : 'text-darken hover:text-primary'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none md:mr-0 w-20" id="main-menu__lang-button">
+        <div class="relative cursor-pointer font-mont lg:ml-0 md:w-fit">
+            <div class="{{$contrast == 'true' ? 'text-white hover:text-secondary' : 'text-darken hover:text-primary'}} flex items-center justify-evenly px-3 py-3 rounded-md transition-all ease-linear duration-100 focus:outline-0 select-none md:mr-0 w-20" id="main-menu__lang-button">
                 <h3 class="mr-2 font-medium text-sm select-none">{{Str::upper(app()->getLocale())}}</h3>
                 
                 <i class="bi bi-chevron-down w-4"></i>
             </div>
 
-            <div class="rounded-lg bg-shadeWhite absolute mt-1 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center select-none" id="main-menu__lang-list">
+            <div class="rounded-lg bg-shadeWhite absolute mt-0 w-20 opacity-0 hidden transition-opacity ease-linear duration-100 shadow-lg text-center select-none z-40" id="main-menu__lang-list">
                 <ul id="en" class="flex flex-col rounded-sm">
                     @foreach (config('localized-routes.supported-locales') as $locale)
                         @if ($loop->last)

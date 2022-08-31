@@ -10,7 +10,7 @@ const nav = () => {
     burger.addEventListener('click', ()=>{
         navMenu.classList.toggle('active-block');
         burger.classList.toggle("on-hamburger");
-        /*
+
         if(document.querySelector('.transparent') != null)
         {
             if(activo && this.window.scrollY>180)
@@ -37,7 +37,6 @@ const nav = () => {
                 if(langButton != null) textContrast(false,true);
             }
         }
-        */
     });
     
     if(document.querySelector('.transparent') != null)
@@ -105,21 +104,22 @@ const nav = () => {
         superToggle(header,['bg-white', 'shadow-lg'], !transparent);
         superToggle(header,['bg-transparent'], transparent);
 
-        superToggle(burgerBackground,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
-        superToggle(burgerBackground,['bg-transparent'], transparent);
-
+        /*
         if(langButton != null)
         {
             superToggle(langButton,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
             superToggle(langButton,['bg-transparent'], transparent);
         }
+        */
     }
 
     const textContrast = (transparent, ret = false) =>{
         
+        /*
         superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
         superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
-
+        */
+       
         if(ret) return;
 
         whiteText.forEach(element => {
