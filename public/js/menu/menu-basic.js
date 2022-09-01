@@ -18,7 +18,7 @@ const nav = () => {
                 menuSticky(false);
                 activo=false;
 
-                if(langButton != null) textContrast(false,true);
+                if(document.querySelector('.contrast') != null) textContrast(false,true);
 
                 
             }
@@ -26,15 +26,21 @@ const nav = () => {
                 menuSticky(true);
                 activo=false;
 
-                if(langButton != null) textContrast(true,true);
+                if(document.querySelector('.contrast') != null) textContrast(true,true);
 
                 
+            }
+            else if(window.matchMedia('screen and (max-width:1023px)').matches)
+            {
+                textContrast(false,false);
+                menuSticky(false);
+                activo=true;
             }
             else{
                 menuSticky(false);
                 activo=true;
 
-                if(langButton != null) textContrast(false,true);
+                if(document.querySelector('.contrast') != null) textContrast(false,true);
             }
         }
     });
@@ -47,7 +53,12 @@ const nav = () => {
 
                 if(this.window.scrollY < 180)
                 {
-                    if(activo)
+                    if(window.matchMedia('screen and (max-width:1023px)').matches && activo)
+                    {
+                        textContrast(false);
+                        menuSticky(false);
+                    }
+                    else if(activo)
                     {
                         textContrast(false);
                         menuSticky(false);
@@ -104,22 +115,16 @@ const nav = () => {
         superToggle(header,['bg-white', 'shadow-lg'], !transparent);
         superToggle(header,['bg-transparent'], transparent);
 
-        /*
-        if(langButton != null)
-        {
-            superToggle(langButton,['bg-zinc-50', 'hover:bg-shadeWhite'], !transparent);
-            superToggle(langButton,['bg-transparent'], transparent);
-        }
-        */
     }
 
     const textContrast = (transparent, ret = false) =>{
         
-        /*
-        superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
-        superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
-        */
-       
+        if(langButton != null)
+        {
+            superToggle(langButton,['text-darken', 'hover:text-primary'], !transparent);
+            superToggle(langButton,['text-white', 'hover:text-secondary'], transparent);
+        }
+
         if(ret) return;
 
         whiteText.forEach(element => {

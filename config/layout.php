@@ -21,10 +21,10 @@ return[
     //Lang
     //Importante que los índices de las rutas sean iguales a las opciones de menú
     'manuLangKeys'=>[
-        'inicio'=>'INICIO',
-        'nosotros'=>'NOSOTROS',
-        'productos'=>'PRODUCTOS',
-        'ordenar'=>'ORDENAR'
+        'inicio'=>'Inicio',
+        'nosotros'=>'Nosotros',
+        'productos'=>'Productos',
+        'ordenar'=>'Ordenar'
     ]
 
 ];

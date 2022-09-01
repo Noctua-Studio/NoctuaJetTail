@@ -1,9 +1,9 @@
 <!-- Notas
     - Nombrar al logo "logo-min.webp"
-    - Requiere 2 scripts: menu-center.js y lang-list.js
+    - Requiere 2 scripts: menu-center.js y lang-list.js (En caso de idioma)
     - Para agregar opciones ir a config/layout.php
     - Para el correcto funcionamiento de las rutas traducidas agregar las rutas en routes/web.php dentro de las rutas localizadas
-    - Se incluyen 2 parámetros, uno para agregar el link al que nos enviará el logo principal y el otro para indicar si queremos agregar el botón de idiomas
+    - Se incluyen parámetros para especificar su ruta principal, activar su botón de lenguaje o editar estilos rápidamente.
 
     BORRAR NOTAS AL UTILIZAR
 -->
@@ -28,7 +28,7 @@
                 <ul class="m-0 p-0 select-none overflow-auto scrollbar-menu {{$animate == 'true' ? 'animate-slidein duration-100' : ''}}">
                     @foreach (config('layout.menuOptions') as $option)
                     <li class="inline-block select-none">
-                        <a class="{{$contrast == 'true' ? 'contrast text-white' : 'text-darken'}} block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium  text-base hover:text-primary" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
+                        <a class="{{$contrast == 'true' ? 'contrast text-white' : 'text-darken'}} block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium  text-base hover:text-primary" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{strtoupper(__(config('layout.manuLangKeys.'.$option)))}}</a>
                     </li>   
                     @endforeach
                 </ul>
@@ -79,7 +79,7 @@
                     </div>
                     @endif
 
-                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{__(config('layout.manuLangKeys.'.config('layout.optionRight')))}}</a>
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-md font-mont font-medium text-environmental text-base hover:text-complementary border-2 border-solid border-environmental hover:border-complementary hover:scale-110 md:hidden" href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{strtoupper(__(config('layout.manuLangKeys.'.config('layout.optionRight'))))}}</a>
                 </div>
         
                 <div class="{{$transparent == 'true' ? 'bg-transparent' : 'bg-zinc-50 hover:bg-shadeWhite'}} {{$animate == 'true' ? 'animate-slidein duration-100' : ''}} px-3 py-3 rounded-md hidden lg:block main-menu__icon cursor-pointer" id="burger-background">
@@ -96,11 +96,11 @@
 
             @foreach (config('layout.menuOptions') as $option)
                 <li class="inline-block select-none lg:block lg:w-fit lg:text-center lg:mx-auto lg:text-6xl">
-                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
+                    <a class="block py-2 px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-darken text-base hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:my-0 md:mx-auto xs:text-2xl" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{strtoupper(__(config('layout.manuLangKeys.'.$option)))}}</a>
                 </li> 
             @endforeach
 
-            <a class="hidden px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-complementary text-3xl hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:block md:w-fit md:px-4 md:mx-auto xs:text-2xl main-menu__main-link2 " href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{__(config('layout.manuLangKeys.'.config('layout.optionRight')))}}</a>
+            <a class="hidden px-4 transition-all duration-100 ease-linear rounded-sm font-mont font-medium text-complementary text-3xl hover:text-primary lg:text-center lg:text-6xl md:text-3xl md:block md:w-fit md:px-4 md:mx-auto xs:text-2xl main-menu__main-link2 " href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{strtoupper(__(config('layout.manuLangKeys.'.config('layout.optionRight'))))}}</a>
         </ul>
     </nav>
 </header>

@@ -26,7 +26,7 @@
         </x-web.menu-center> --}}
         
 
-        <x-web.menu-basic>
+        <x-web.menu-basic link="http://127.0.0.1:8000/" transparent="true" lang="true" contrast="false" animate="false">
 
         </x-web.menu-basic>
 

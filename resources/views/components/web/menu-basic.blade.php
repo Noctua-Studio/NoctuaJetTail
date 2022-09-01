@@ -1,7 +1,17 @@
+<!-- Notas
+    - Nombrar al logo "logo-min.webp"
+    - Requiere 2 scripts: menu-basic.js y lang-list.js (En caso de idioma)
+    - Para agregar opciones ir a config/layout.php
+    - Para el correcto funcionamiento de las rutas traducidas agregar las rutas en routes/web.php dentro de las rutas localizadas
+    - Se incluyen parámetros para especificar su ruta principal, activar su botón de lenguaje o editar estilos rápidamente.
+
+    BORRAR NOTAS AL UTILIZAR
+-->
+
 @props([
     'link' => '#',
     'lang' => 'true',
-    'transparent' => 'true',
+    'transparent' => 'false',
     'contrast' => 'false',
     'animate'=> 'true'
 ])
@@ -58,20 +68,15 @@
 
         <nav class="main-menu__nav lg:absolute left-0 top-14 lg:bg-white lg:w-full lg:text-center lg:my-0 lg:mx-auto">
             <ul class="lg:hidden lg:my-8 w-full lg:p-0 lg:animate-slidein lg:duration-100 flex flex-nowrap">
+
+                @foreach (config('layout.menuOptions') as $option)
                 <li class="inline-block lg:block lg:w-fit lg:my-3">
-                    <a class="main-menu__link block py-1.5 px-4 lg:px-0 mini:mx-8 lg:ml-12 transition-all duration-150 ease-linear rounded-md font-semibold text-darken text-lg hover:text-primary text-left" href="/" title="Inicio">Inicio</a>
+                    <a class="main-menu__link {{$contrast == 'true' ? 'contrast text-white' : 'text-darken'}} block py-1.5 px-4 lg:px-0 mini:mx-8 lg:ml-12 transition-all duration-150 ease-linear rounded-md font-semibold text-lg hover:text-primary text-left" href="{{route(config('layout.menuRouteNames.'.$option))}}">{{__(config('layout.manuLangKeys.'.$option))}}</a>
                 </li>
+                @endforeach
+
                 <li class="inline-block lg:block lg:w-fit lg:my-3">
-                    <a class="main-menu__link block py-1.5 px-4 lg:px-0 lg:mx-12 mini:mx-8 transition-all duration-150 ease-linear rounded-md font-semibold text-darken text-lg hover:text-primary text-left" href="/nosotros" title="Nosotros">Nosotros</a>
-                </li>
-                <li class="inline-block lg:block lg:w-fit lg:my-3">
-                    <a class="main-menu__link block py-1.5 px-4 lg:px-0 lg:mx-12 mini:mx-8 transition-all duration-150 ease-linear rounded-md font-semibold text-darken text-lg hover:text-primary text-left" href="/servicios" title="Servicios">Servicios</a>
-                </li>
-                <li class="inline-block lg:block lg:w-fit lg:my-3">
-                    <a class="main-menu__link block py-1.5 px-4 lg:px-0 lg:mx-12 mini:mx-8 transition-all duration-150 ease-linear rounded-md font-semibold text-darken text-lg hover:text-primary text-left" href="/portafolio" title="Portafolio">Portafolio</a>
-                </li>
-                <li class="inline-block lg:block lg:w-fit lg:my-3">
-                    <a class="main-menu__link main-menu__main-link block py-1.5 px-4 lg:mx-12 mini:mx-8 transition-all duration-150 ease-linear rounded-md font-semibold text-white text-lg bg-complementary hover:scale-110 text-left" id="contacto__button" href="/contacto" title="Contacto">Contacto</a>
+                    <a class="main-menu__link main-menu__main-link block py-1.5 px-4 lg:mx-12 mini:mx-8 transition-all duration-150 ease-linear rounded-md font-semibold text-white text-lg bg-complementary hover:scale-110 text-left" id="contacto__button" href="{{route(config('layout.menuRouteNames.'.config('layout.optionRight')))}}">{{__(config('layout.manuLangKeys.'.config('layout.optionRight')))}}</a>
                 </li>
             </ul>
         </nav>
