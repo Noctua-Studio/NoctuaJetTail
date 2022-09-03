@@ -30,6 +30,16 @@
 
         </x-web.menu-basic>
 
+        <x-web.hero-w-btn>
+            
+        </x-web.hero-w-btn>
+        
+        <x-web.text-img>
+
+        </x-web.text-img>
+
+        
+
         <main >
             {{ $slot }}
             
