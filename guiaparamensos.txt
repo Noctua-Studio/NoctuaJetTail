@@ -84,3 +84,9 @@ Dentro del request ej
 
 Para crear los archivos de modelo, migración, controller y requests el siguiente comando
 php artisan make:model {{model}} -crRm
+Crear los modelos y verificar el nombre de la tabla
+Agregar campos a cada tabla en migraciones, eliminar las "s" en primarykey y en tabla de translations
+Agregar reglas a requests, tener cuidado con la regla unique, revisar que sea la tabla adecuada
+Agregar atributos 
+Revisar storage en el controller, agregar nombre de archivos en $files 
+Revisar vistas

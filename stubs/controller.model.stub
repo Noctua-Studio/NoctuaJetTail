@@ -11,7 +11,7 @@ class {{ class }} extends Controller
 {
 
     protected $storage="storage/{{modelVariable}}s/";
-    protected $variableS={{modelVariable}};
+    protected $variableS="{{modelVariable}}";
     protected $variableP="{{modelVariable}}s";
     protected $viewRoutes=[
         'index'   =>  'admin.edition.{{modelVariable}}s.index',

@@ -31,7 +31,7 @@ class {{ class }} extends FormRequest
             '' => '',
         ];
         foreach(config('translatable.locales') as $locale){
-            $attributes['name:'.$locale] = 'Nombre';
+            $attributes['name:'.$locale] = 'Nombre ['.$locale.']';
         }
 
         return $attributes;
