@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                mont: ['Montserrat, helvetica'],
             },
 
             colors : {
@@ -26,28 +27,38 @@ module.exports = {
             },
 
             screens: {
+                'desktop': {'max': '1280px'},
+                // => @media (max-width: 1280px) { ... }
+
                 'xl': {'max': '1279px'},
                 // => @media (max-width: 1279px) { ... }
+
+                'laptop': {'max': '1024px'},
+                // => @media (max-width: 1024px) { ... }
 
                 'lg': {'max': '1023px'},
                 // => @media (max-width: 1023px) { ... }
 
+                'tablet': {'max': '768px'},
+                // => @media (max-width: 768px) { ... }
+
                 'md': {'max': '767px'},
                 // => @media (max-width: 767px) { ... }
 
-                'sm': {'max': '639px'},
+                'phone': {'max': '600px'},
+                // => @media (max-width: 601px) { ... }
+
+                'sm': {'max': '599px'},
                 // => @media (max-width: 639px) { ... }
+
+                's-phone': {'max': '500px'},
+                // => @media (max-width: 601px) { ... }
 
                 'xs': {'max': '499px'},
                 // => @media (max-width: 499px) { ... }
 
-                
                 'mini': {'max': '380px'},
-                
-
-                
-
-                
+                // => @media (max-width: 380px) { ... }
             },
 
             animation: {

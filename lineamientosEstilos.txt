@@ -1,0 +1,7 @@
+Textos ==================================================================0
+
+- Título GDE
+    text-8xl font-bold text-stone-900 font-mont tablet:text-6xl phone:text-4xl mini:text-3xl
+
+- Subtíulo GDE
+    text-2xl font-normal text-stone-900 phone:text-xl
