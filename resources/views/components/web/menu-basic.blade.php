@@ -1,4 +1,5 @@
-<!-- Notas
+@if (false)
+    <!-- Notas
     - Nombrar al logo "logo-min.webp"
     - Requiere 2 scripts: menu-basic.js y lang-list.js (En caso de idioma)
     - Para agregar opciones ir a config/layout.php
@@ -6,7 +7,9 @@
     - Se incluyen parámetros para especificar su ruta principal, activar su botón de lenguaje o editar estilos rápidamente.
 
     BORRAR NOTAS AL UTILIZAR
--->
+    -->
+@endif
+
 
 @props([
     'link' => '#',
