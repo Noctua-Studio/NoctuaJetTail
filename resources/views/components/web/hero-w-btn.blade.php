@@ -4,9 +4,10 @@
     <div class="home__text-container grid text-center text-white z-20 justify-center min-w-[150px] max-w-[650px] mx-5 mini:mt-16 gap-3">
         <h1 class="text-8xl font-bold text-stone-900 font-mont tablet:text-6xl phone:text-4xl mini:text-3xl text-center">Texto inicial<br>llamativo</h1>
         <p class="text-2xl font-normal text-stone-900 phone:text-xl min-w-[100px] max-w-[500px] md:max-w-[400px] mini:max-w-[300px] text-center mx-auto">Subtítulo con texto que explique un poco más de tu negocio</p>
-        <div class="home__buttons w-full flex items-center justify-center my-5 mx-auto sm:flex-col">
-            <a class="nta-btn-envieronmental bg-environmental border-none transition-all duration-100 ease-linear w-44 text-center py-4 px-7 sm:w-full" href="servicios.php" title="Planes">Ver Planes</a>
-            <a class="nta-btn-complementary sm:w-full" href="contacto.php" title="Contacto">Contáctanos</a>
+        <div class="home__buttons w-full flex items-center justify-center my-5 mx-auto sm:flex-col gap-6">
+
+            <x-web.elements.button route="" color="environmental" textColor="white" hoverScale="true" hoverColor="white" hoverTextColor="black">Boton 1</x-web.elements.button>
+            <x-web.elements.button route="" color="complementary" textColor="white" hoverScale="true" hoverColor="black">Boton 2</x-web.elements.button>
         </div>
     </div>
 </section>
