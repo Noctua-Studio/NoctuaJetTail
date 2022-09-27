@@ -6,7 +6,6 @@
     - Para el correcto funcionamiento de las rutas traducidas agregar las rutas en routes/web.php dentro de las rutas localizadas
     - Se incluyen parámetros para especificar su ruta principal, activar su botón de lenguaje o editar estilos rápidamente.
 
-    BORRAR NOTAS AL UTILIZAR
     -->
 @endif
 
