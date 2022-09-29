@@ -20,25 +20,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-slate-200">
-        
-    
-        {{-- <x-web.menu-center link="http://127.0.0.1:8000/" transparent="false" lang="true" contrast="false">
-
-        </x-web.menu-center> --}}
-        
-
-        <x-web.menu-basic link="http://127.0.0.1:8000/" transparent="true" lang="true" contrast="false" animate="false">
-
-        </x-web.menu-basic>        
+    <body class="bg-slate-100">
+     
 
         <main >
             {{ $slot }}
             
         </main>
 
-        {{-- <script src="{{asset('js/menu/menu-center.js')}}"></script> --}}
-        <script src="{{asset('js/menu/menu-basic.js')}}"></script>
-        <script src="{{asset('js/menu/lang-list.js')}}"></script>
     </body>
 </html>

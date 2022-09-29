@@ -4,6 +4,6 @@
             <h2 class="nta-title nta-title-md">Creamos una web única para tí</h2>
             <p class="nta-text nta-text-sm">Somos la empresa de desarrollo web que crea sitios web justo como los necesitas</p>
         </div>
-        <img class="width-full min-w-[150px] max-w-[550px] lg:w-full lg:justify-self-center" src="{{asset('img/placeholder.png')}}" alt="Computadora Noctua">
+        <img class="w-full min-w-[150px] max-w-[550px] lg:justify-self-center" src="{{asset('img/placeholder.png')}}" alt="Computadora Noctua">
     </div>
 </section>
