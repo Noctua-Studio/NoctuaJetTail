@@ -92,3 +92,10 @@
         margin-right: 2rem;
     }
 }
+
+/* menu-admin =======================*/
+.sidebar ul li:hover .tooltip{
+    transition: all 0.4 ease-in-out;
+    opacity: 1;
+    top: 50%;
+}

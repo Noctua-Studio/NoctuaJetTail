@@ -22,76 +22,80 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased relative min-h-screen w-full overflow-hidden">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
 
-            <div class="sidebar">
-                <div class="logo__content">
-                    <div class="logo">
-                        <div class="logo__name">Noctua Admin</div>
+            <div class="sidebar fixed top-0 left-0 h-full w-60 bg-white py-2 px-3">
+                <div class="logo__content ">
+                    <div class="logo text-darken flex h-12 w-full items-center">
+                        <div class="logo__name text-xl font-normal">Noctua Admin</div>
                     </div>
-                    <i class="bi bi-list"></i>
+                    <i class="bi bi-list absolute text-gray-900 left-[90%] top-2 text-xl h-12 w-12 text-center -translate-x-2/4" id="admin-btn"></i>
                 </div>
 
-                <ul class="nav__list">
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-search"></i>
-                            <input type="text" placeholder="Buscar">
-                        </a>
+                <ul class="nav__list mt-5">
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-shadeDark"></i>
+                        <input class="absolute h-full w-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-shadeDark" type="text" placeholder="Buscar">
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Buscar</span> --}}
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-house-door-fill"></i>
-                            <span class="links__name">Home</span>
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <a class="text-shadeDark flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <i class="bi bi-house-door-fill h-12 min-w-[48px] rounded-md leading-10 text-center"></i>
+                            <span class="links__name">Inicio</span>
                         </a>
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Inicio</span> --}}
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-laptop-fill"></i>
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <a class="text-shadeDark flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <i class="bi bi-laptop-fill h-12 min-w-[48px] rounded-md leading-10 text-center"></i>
                             <span class="links__name">Sitio</span>
                         </a>
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Sitio</span> --}}
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-bag-fill"></i>
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <a class="text-shadeDark flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <i class="bi bi-bag-fill h-12 min-w-[48px] rounded-md leading-10 text-center"></i>
                             <span class="links__name">Productos</span>
                         </a>
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Productos</span> --}}
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-gear-fill"></i>
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <a class="text-shadeDark flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <i class="bi bi-gear-fill h-12 min-w-[48px] rounded-md leading-10 text-center"></i>
                             <span class="links__name">Configuración</span>
                         </a>
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Configuración</span> --}}
                     </li>
 
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-person-fill"></i>
+                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                        <a class="text-shadeDark flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <i class="bi bi-person-fill h-12 min-w-[48px] rounded-md leading-10 text-center"></i>
                             <span class="links__name">Usuarios</span>
                         </a>
+                        {{-- <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 top-0 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none">Usuarios</span> --}}
                     </li>
                 </ul>
 
-                <div class="profile__content">
-                    <div class="profile">
-                        <div class="profile__details">
-                            {{-- <img src="{{asset('img/placeholder.png')}}" alt=""> --}}
+                <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full">
+                    <div class="profile relative py-3 px-2 h-14 bg-slate-100">
+                        <div class="profile__details flex items-center">
+                            <img class="h-11 w-11 object-cover rounded-md" src="{{asset('img/placeholder.png')}}" alt="">
 
-                            <div class="name__job">
-                                <div class="name">Antonio Galván</div>
-                                <div class="job">Administrador</div>
+                            <div class="name__job ml-3">
+                                <div class="name font-semibold">Antonio Galván</div>
+                                <div class="job text-sm">Administrador</div>
                             </div>
                         </div>
 
-                        <i class="bi bi-box-arrow-right" id="log_out"></i>
+                        <i class="bi bi-box-arrow-right absolute left-[88%] bottom-1 -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md" id="log_out"></i>
                     </div>
                 </div>
             </div>
@@ -106,10 +110,13 @@
                 </header>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            <div class="absolute h-full w-[calc(100%-240px)] left-60">
+                <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                    afdsafsdf
+                </main>
+            </div>
         </div>
 
         @stack('modals')
