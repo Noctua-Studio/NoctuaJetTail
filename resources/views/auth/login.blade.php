@@ -2,7 +2,7 @@
     <section class="w-screen overflow-y-auto block transition-all duration-100 ease-out phone:bg-white" id="login">
         <div class="login__container p-6 relative h-screen flex justify-center items-center w-screen">
             <div class="login__formulario p-8 mb-2 w-[350px] min-w-[100px] bg-white m-0 rounded-md shadow-md nta-text nta-text-sm phone:px-0 phone:shadow-none phone:w-screen">
-                <h2 class="text-2xl font-bold text-primary font-mont phone:text-xl">Noctua Admin</h2>
+                <h2 class="text-2xl font-bold text-primary font-mont phone:text-xl mb-6">Noctua Admin</h2>
 
                 <x-jet-validation-errors class="mb-4" />
                 

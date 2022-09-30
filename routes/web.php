@@ -24,15 +24,6 @@ Route::localized(function(){
     Route::get(lang::uri('/productos'),[WebController::class,'products'])->name('products');
     Route::get(lang::uri('/ordenar'),[WebController::class,'order'])->name('order');
 
-    Route::middleware([
-        'auth:sanctum',
-        config('jetstream.auth_session'),
-        'verified'
-    ])->group(function () {
-        Route::get('/dashboard', function () {
-            return view('dashboard');
-        })->name('dashboard');
-    });
 });
 
 
