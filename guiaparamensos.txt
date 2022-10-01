@@ -32,12 +32,23 @@ Agregamos la ruta del index en el archivo web de rutas
 Usamos el layout de guest para la página pública
 
 
+Para crear los archivos de modelo, migración, controller y requests el siguiente comando
+php artisan make:model {{model}} -crRm
+Crear los modelos y verificar el nombre de la tabla
+Agregar campos a cada tabla en migraciones, eliminar las "s" en primarykey y en tabla de translations
+Agregar reglas a requests, tener cuidado con la regla unique, revisar que sea la tabla adecuada
+Agregar atributos 
+Revisar storage en el controller, agregar nombre de archivos en $files 
+Revisar vistas
+
+
 ==============LANG==============
 Los locales deben de ser modificados en 2 archivos de config translatable.php y localized-routes.php
-Migraciones, el comando también crea los modelos
-php artisan make:migration <Migración base> -m
-php artisan make:migration <Migración>-translations -m
 
+Los campos de la migración se llenan en automátco por medio de los arrays
+$tableColumns
+$tableColumnTranslated
+Rellenar el nombre de las columnas en cada array
 la migración base no lleva campos extras
     id
     <campos>
@@ -47,7 +58,7 @@ la -translations lleva las siguientes líneas
     *$table->foreignId('<modelo base>_id')->constrained();
     *$table->string('locale')->index();
 
-    <campos a traducir>(Nombre de imagen no se traduce y no se pone)
+
 
     *$table->unique(['<modelo base>_id','locale']);
 
@@ -74,19 +85,10 @@ y dentro de la parte de name para recopilar los datos
 Dentro del request ej
     public function rules(){
         $rules = [
-            'es.title' => 'required'
+            'title' => 'required'
         ];
         foreach(config('translatable.locales') as $locale){
             $rules[$locale . '.title']= 'string';
         }
         return $rules;
     }
-
-Para crear los archivos de modelo, migración, controller y requests el siguiente comando
-php artisan make:model {{model}} -crRm
-Crear los modelos y verificar el nombre de la tabla
-Agregar campos a cada tabla en migraciones, eliminar las "s" en primarykey y en tabla de translations
-Agregar reglas a requests, tener cuidado con la regla unique, revisar que sea la tabla adecuada
-Agregar atributos 
-Revisar storage en el controller, agregar nombre de archivos en $files 
-Revisar vistas

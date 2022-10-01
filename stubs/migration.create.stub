@@ -6,9 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    //Variables para automatización de migraciones
+    //Eliminar las "s" anterior a "_"
     protected $tableName="{{ table }}";
     protected $translationsTableName="{{ table }}_translations";
     protected $primaryKey="{{ table }}_id";
+    protected $tableColumns=[
+        'string'=>[
+
+        ],
+        'text'=>[
+            
+        ]
+    ];
+    protected $tableColumnsTranslated=[
+        'string'=>[
+
+        ],
+        'text'=>[
+            
+        ]
+    ];
 
     /**
      * Run the migrations.
@@ -19,6 +37,13 @@ return new class extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->id();
+
+            foreach($this->tableColumns['string'] as $column){
+                $table->string($column);
+            }
+            foreach($this->tableColumns['text'] as $column){
+                $table->text($column);
+            }
 
             //table columns
 
@@ -31,6 +56,14 @@ return new class extends Migration
                 $table->foreignId($this->primaryKey)->constrained();
                 $table->string('locale')->index();
 
+
+                foreach($this->tableColumnsTranslated['string'] as $column){
+                    $table->string($column);
+                }
+                foreach($this->tableColumnsTranslated['text'] as $column){
+                    $table->text($column);
+                }
+                
                 //Table columns
 
                 $table->unique([$this->primaryKey,'locale']);
