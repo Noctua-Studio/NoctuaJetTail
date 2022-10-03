@@ -12,5 +12,5 @@ Route::middleware([
 
         Route::get('/home', function() {
             return view('admin.index');
-        })->name('home');
+        })->name('home-admin');
     });
