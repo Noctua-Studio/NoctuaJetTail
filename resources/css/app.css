@@ -100,6 +100,46 @@
 }
 
 .active-adminMenu .logo__content .logo{
-    display: none;
+    opacity: 0;
 }
 
+.active-adminMenu .logo__content .bi-list
+{
+    left: 50%;
+}
+
+.active-adminMenu ul li:hover .tooltip
+{
+    opacity: 1;
+    top: 30%;
+    transition-delay: 1000ms;
+}
+
+.active-adminMenu .nav__list .bi-search:hover{
+    background-color: #3d75f2;
+    color: white;
+}
+
+.active-adminMenu ul li a{
+    width: fit-content;
+}
+
+.active-adminMenu ul li .links__name
+{
+    display: none;
+    pointer-events: none;
+}
+
+.active-adminMenu ul li input{
+    background-color: white;
+}
+
+.active-adminMenu .profile .profile__details
+{
+    opacity: 0;
+}
+
+.active-adminMenu .profile .bi-box-arrow-right
+{
+    left: 55%;
+}
