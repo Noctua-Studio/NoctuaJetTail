@@ -134,6 +134,10 @@
     background-color: white;
 }
 
+.active-adminMenu ul li input:placeholder-shown{
+    opacity: 0;
+}
+
 .active-adminMenu .profile .profile__details
 {
     opacity: 0;
@@ -141,5 +145,16 @@
 
 .active-adminMenu .profile .bi-box-arrow-right
 {
-    left: 55%;
+    left: 51%;
+}
+
+.active-adminMenu .profile .bi-box-arrow-right:hover
+{
+    color: red;
+}
+
+.active-adminMenu ~ .home__content
+{
+    width: calc(100% - 80px);
+    left: 80px;
 }

@@ -111,9 +111,9 @@
                 </header>
             @endif
 
-            <div class="absolute h-full w-[calc(100%-320px)] left-80">
+            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px)] left-80 bg-red-700">
                 <!-- Page Content -->
-                <main>
+                <main class="">
                     {{ $slot }}
                     
                 </main>
