@@ -148,11 +148,6 @@
     left: 51%;
 }
 
-.active-adminMenu .profile .bi-box-arrow-right:hover
-{
-    color: red;
-}
-
 .active-adminMenu ~ .home__content
 {
     width: calc(100% - 80px);
