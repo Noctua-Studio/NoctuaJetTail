@@ -11,7 +11,8 @@ searchBtn.addEventListener('click', ()=>{
     if(sidebar.classList.contains("active-adminMenu"))
     {
         sidebar.classList.toggle("active-adminMenu");
-        searchInput.focus();
+        
     }
+    searchInput.focus();
     
 });

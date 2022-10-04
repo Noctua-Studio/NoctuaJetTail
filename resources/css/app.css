@@ -115,6 +115,10 @@
     transition-delay: 1000ms;
 }
 
+.active-adminMenu .nav__list .bi-search
+{
+    cursor: pointer;
+}
 .active-adminMenu .nav__list .bi-search:hover{
     background-color: #3d75f2;
     color: white;
@@ -150,6 +154,6 @@
 
 .active-adminMenu ~ .home__content
 {
-    width: calc(100% - 80px);
-    left: 80px;
+    width: calc(100% - 80px - (16px*2));
+    left: calc(80px + (16px*2));
 }

@@ -28,7 +28,7 @@
         <div class="min-h-screen bg-gray-100">
             
 
-            <div class="sidebar fixed top-0 left-0 h-full w-80 bg-white py-2 px-3 transition-all duration-150 ease-linear">
+            <div class="sidebar fixed top-0 left-0 h-[calc(100%-(16px*2))] w-80 bg-white py-2 px-3 transition-all duration-150 ease-linear m-4 rounded-md">
                 <div class="logo__content">
                     <div class="logo text-darken flex gap-2 h-12 w-full items-center opacity-100">
                         <img class="h-11 w-11" src="{{asset('img/logo-min.webp')}}" alt="">
@@ -39,7 +39,7 @@
 
                 <ul class="nav__list mt-5 flex flex-col gap-0">
                     <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium mb-3">
-                        <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-pointer" id="search-btn"></i>
+                        <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-text" id="search-btn"></i>
                         <input class="absolute h-full w-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900" type="text" id="searchInput" placeholder="Buscar">
                         <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in">Buscar</span>
                     </li>
@@ -85,8 +85,8 @@
                     </li>
                 </ul>
 
-                <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full">
-                    <div class="profile relative py-3 px-3 h-16 bg-slate-100">
+                <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full bg-secondary rounded-b-md">
+                    <div class="profile relative py-3 px-3 h-[68px] ">
                         <div class="profile__details opacity-100 flex">
                             <img class="h-11 w-11 object-cover rounded-md" src="{{asset('img/cube.jpg')}}" alt="">
 
@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                        <i class="bi bi-box-arrow-right absolute left-[88%] bottom-2 -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md cursor-pointer text-center hover:text-red-600" id="log_out"></i>
+                        <i class="bi bi-box-arrow-right absolute left-[88%] bottom-[12px] -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md cursor-pointer text-center hover:text-red-600" id="log_out"></i>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 </header>
             @endif
 
-            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px)] left-80">
+            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] left-[calc(320px+(16px*2))]">
                 <!-- Page Content -->
                 <main class="">
                     {{ $slot }}
