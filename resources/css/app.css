@@ -108,10 +108,14 @@
     left: 50%;
 }
 
+.active-adminMenu ul li .tooltip
+{
+    display: block;
+}
 .active-adminMenu ul li:hover .tooltip
 {
     opacity: 1;
-    top: 30%;
+    top: 20%;
     transition-delay: 1000ms;
 }
 
