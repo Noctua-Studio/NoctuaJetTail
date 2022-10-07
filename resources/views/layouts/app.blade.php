@@ -37,63 +37,69 @@
                     <i class="bi bi-list absolute text-primary left-[90%] top-2 text-3xl h-12 w-12 text-center -translate-x-2/4 flex items-center justify-center cursor-pointer" id="admin-btn"></i>
                 </div>
 
-                <ul class="nav__list mt-5 flex flex-col gap-0">
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium mb-3">
-                        <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-text" id="search-btn"></i>
-                        <input class="absolute h-full w-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900" type="text" id="searchInput" placeholder="Buscar">
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Buscar</span>
-                    </li>
-
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                        <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
-                            <i class="bi bi-house-door-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
-                            <span class="links__name">Inicio</span>
-                        </a>
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Inicio</span>
-                    </li>
-
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                        <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
-                            <i class="bi bi-laptop-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
-                            <span class="links__name">Sitio</span>
-                        </a>
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Sitio</span>
-                    </li>
-
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                        <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
-                            <i class="bi bi-bag-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
-                            <span class="links__name">Productos</span>
-                        </a>
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Productos</span>
-                    </li>
-
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                        <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
-                            <i class="bi bi-gear-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
-                            <span class="links__name">Configuración</span>
-                        </a>
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Configuración</span>
-                    </li>
-
-                    <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                        <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
-                            <i class="bi bi-person-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
-                            <span class="links__name">Usuarios</span>
-                        </a>
-                        <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Usuarios</span>
-                    </li>
-                </ul>
+                
+                    <ul class="nav__list mt-5 flex flex-col gap-0 relative h-[calc(100%-60px)]">
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium mb-3">
+                            <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-text" id="search-btn"></i>
+                            <input class="absolute h-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900 w-[calc(100%-6px)]" type="text" id="searchInput" placeholder="Buscar">
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Buscar</span>
+                        </li>
+                        <div class="sidebar__items pr-1 h-[calc(100%-150px)] w-full absolute top-16">
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                                <i class="bi bi-house-door-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
+                                <span class="links__name">Inicio</span>
+                            </a>
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden z-50 text-primary">Inicio</span>
+                        </li>
+    
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                                <i class="bi bi-laptop-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
+                                <span class="links__name">Sitio</span>
+                            </a>
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Sitio</span>
+                        </li>
+    
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                                <i class="bi bi-bag-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
+                                <span class="links__name">Productos</span>
+                            </a>
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Productos</span>
+                        </li>
+    
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                                <i class="bi bi-gear-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
+                                <span class="links__name">Configuración</span>
+                            </a>
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Configuración</span>
+                        </li>
+    
+                        <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                                <i class="bi bi-person-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
+                                <span class="links__name">Usuarios</span>
+                            </a>
+                            <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Usuarios</span>
+                        </li>
+                        
+                    </div>
+                    </ul>
+                
 
                 <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full bg-secondary rounded-b-md">
                     <div class="profile relative py-3 px-3 h-[68px] ">
                         <div class="profile__details opacity-100 flex">
                             <img class="h-11 w-11 object-cover rounded-md" src="{{asset('img/cube.jpg')}}" alt="">
 
-                            <div class="name__job ml-3">
-                                <div class="name font-semibold whitespace-nowrap">Antonio Galván</div>
-                                <div class="job text-sm">Administrador</div>
-                            </div>
+                            <a href="#" class="hover:text-primary transition-all duration-150">
+                                <div class="name__job ml-3">
+                                    <div class="name font-semibold whitespace-nowrap">Antonio Galván</div>
+                                    <div class="job text-sm">Administrador</div>
+                                </div>
+                            </a>
                         </div>
 
                         <i class="bi bi-box-arrow-right absolute left-[88%] bottom-[12px] -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md cursor-pointer text-center hover:text-red-600" id="log_out"></i>
