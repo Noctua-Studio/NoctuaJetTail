@@ -119,7 +119,7 @@
 
             <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] left-[calc(320px+(16px*2))] pt-4 pr-4 pb-4 z-0 ">
                 <!-- Page Content -->
-                <main class="bg-white w-full h-full rounded-md shadow">
+                <main class="bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto">
                     {{ $slot }}
                     
                 </main>
