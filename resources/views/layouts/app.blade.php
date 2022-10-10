@@ -127,7 +127,7 @@
                 </header>
             @endif
 
-            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 z-0 tablet:top-[calc(64px+16px)] tablet:h-[calc(100%-(64px+16px))]">
+            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 pl-0 tablet:pl-4 z-0 tablet:top-[calc(64px+16px)] tablet:h-[calc(100%-(64px+16px))]">
                 <!-- Page Content -->
                 <main class="bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto">
                     {{ $slot }}
