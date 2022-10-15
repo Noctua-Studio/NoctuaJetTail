@@ -44,7 +44,7 @@
                             <input class="absolute h-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900 w-[calc(100%-6px)]" type="text" id="searchInput" placeholder="Buscar">
                             <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Buscar</span>
                         </li>
-                        <div class="sidebar__items pr-1 h-[calc(100%-150px)] w-full absolute top-16">
+                        <div class="sidebar__items pr-1 h-[calc(100%-150px)] w-full absolute top-16 overflow-y-auto overflow-x-hidden">
                         <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
                             <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
                                 <i class="bi bi-house-door-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
@@ -129,7 +129,7 @@
 
             <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 pl-0 tablet:pl-4 z-0 tablet:top-[calc(64px+16px)] tablet:h-[calc(100%-(64px+16px))]">
                 <!-- Page Content -->
-                <main class="bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto">
+                <main class="main__content bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto">
                     {{ $slot }}
                     
                 </main>

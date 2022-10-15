@@ -174,18 +174,18 @@
     left: calc(80px + (16px*2));
 }
 
-.sidebar__items::-webkit-scrollbar {
+.sidebar__items::-webkit-scrollbar, .main__content::-webkit-scrollbar {
     width: 3px;
 }
 
-.active-adminMenu .sidebar__items::-webkit-scrollbar {
+.active-adminMenu .sidebar__items::-webkit-scrollbar{
     width: 0;
 }
 
-.sidebar__items::-webkit-scrollbar-track {
+.sidebar__items::-webkit-scrollbar-track, .main__content::-webkit-scrollbar-track {
     background: #e5e7eb;
 }
 
-.sidebar__items::-webkit-scrollbar-thumb {
+.sidebar__items::-webkit-scrollbar-thumb, .main__content::-webkit-scrollbar-thumb {
     background: #598dff;
   }
