@@ -107,14 +107,14 @@
                 </div>
             </div>
 
-            <div class="topbar hidden fixed top-0 left-0 w-[calc(100%-(16px*2))] h-16 bg-white py-2 px-3 transition-all duration-150 ease-linear rounded-md shadow z-50 m-4 tablet:flex">
+            <div class="bottomBar hidden fixed bottom-0 left-0 w-full h-16 bg-white py-2 px-3 transition-all duration-150 ease-linear rounded-md shadow z-50 tablet:block tablet:bg-slate-100">
 
-                <div class="logo__content">
-                    <div class="logo text-darken flex gap-2 h-12 w-full items-center opacity-100">
+                <div class="bottomBar__items flex justify-center items-center">
+                    <div class="logo text-darken flex gap-2 h-12 items-center opacity-100">
                         <img class="h-11 w-11" src="{{asset('img/logo-min.webp')}}" alt="">
-                        <div class="logo__name text-xl text-primary font-semibold whitespace-nowrap">Manager Studio</div>
+                    
                     </div>
-                    <i class="bi bi-list absolute text-primary left-[90%] top-2 text-3xl h-12 w-12 text-center -translate-x-2/4 flex items-center justify-center cursor-pointer" id="admin-btn"></i>
+                    <i class="bi bi-list text-primary top-2 text-3xl h-12 w-12 text-center  flex items-center justify-center cursor-pointer" id="admin-btn"></i>
                 </div>
             </div>
 
@@ -127,9 +127,9 @@
                 </header>
             @endif
 
-            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 pl-0 tablet:pl-4 z-0 tablet:top-[calc(64px+16px)] tablet:h-[calc(100%-(64px+16px))]">
+            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 pl-0 tablet:p-0 z-0 tablet:top-0 tablet:h-[calc(100%-64px)] tablet:block">
                 <!-- Page Content -->
-                <main class="main__content bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto">
+                <main class="main__content bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto tablet:rounded-none">
                     {{ $slot }}
                     
                 </main>
