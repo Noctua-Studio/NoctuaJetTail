@@ -1,13 +1,16 @@
 
 <x-app-layout>
     <div class="flex flex-col gap-8">
-        <h1 class="nta-title nta-title-lg text-3xl font-semibold font-mont text-darken">Inicio</h1>
+        
+        <x-admin.header>    
+        </x-admin.header>  
+
     
-            <div class="inicio bg-secondary flex gap-12 flex-wrap p-8 w-full rounded-md justify-between">
+            <div class="inicio bg-secondary flex gap-12 flex-wrap p-8 w-full rounded-md justify-between phone:gap-6">
                 <div>
-                    <h1 class="nta-title nta-title-lg text-6xl font-bold font-mont text-darken">Bienvenido <br> <span class="text-primary">{{Auth::user()->name}}</span></h1>
+                    <h1 class="nta-title nta-title-lg text-6xl font-bold font-mont text-darken laptop:text-3xl phone:text-2xl">Bienvenido <br> <span class="text-primary">{{Auth::user()->name}}</span></h1>
                 </div>
-                <img class="w-72" src="{{asset('img/welcome.svg')}}" alt="">
+                <img class="w-72 phone:w-20" src="{{asset('img/welcome.svg')}}" alt="">
             </div>
             <div class="gap-5 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))]">
                 <x-admin.itemChart bgColor="bg-primary"></x-admin.itemChart>

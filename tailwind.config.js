@@ -59,6 +59,8 @@ module.exports = {
 
                 'mini': {'max': '380px'},
                 // => @media (max-width: 380px) { ... }
+
+                'fold': {'max': '320px'}
             },
 
             animation: {

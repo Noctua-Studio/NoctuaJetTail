@@ -25,7 +25,7 @@
     <body class="font-sans antialiased relative min-h-screen w-full overflow-hidden">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-slate-200">
+        <div class="min-h-screen bg-slate-200 tablet:bg-white">
             
 
             <div class="sidebar fixed top-0 left-0 h-[calc(100%-(16px*2))] w-80 bg-white py-2 px-3 transition-all duration-150 ease-linear m-4 rounded-md shadow z-50 tablet:hidden">
@@ -107,14 +107,21 @@
                 </div>
             </div>
 
-            <div class="bottomBar hidden fixed bottom-0 left-0 w-full h-16 bg-white py-2 px-3 transition-all duration-150 ease-linear rounded-md shadow z-50 tablet:block tablet:bg-slate-100">
+            <div class="bottomBar hidden fixed bottom-0 left-0 h-16 py-2 px-3 transition-all duration-150 ease-linear shadow z-50 tablet:bg-slate-200 my-2 mx-4 tablet:flex items-end w-full ml-0 mb-0">
 
-                <div class="bottomBar__items flex justify-center items-center">
-                    <div class="logo text-darken flex gap-2 h-12 items-center opacity-100">
-                        <img class="h-11 w-11" src="{{asset('img/logo-min.webp')}}" alt="">
-                    
+                <div class="bottomBar__items flex items-center justify-around w-full phone:gap-16 mini:gap-14 fold:gap-12">
+                    <div class="flex w-full justify-center gap-8 phone:gap-2 fold:gap-1">
+                        <i class="bi bi-house h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
+                        <i class="bi bi-laptop h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
                     </div>
-                    <i class="bi bi-list text-primary top-2 text-3xl h-12 w-12 text-center  flex items-center justify-center cursor-pointer" id="admin-btn"></i>
+                    <div class="flex w-full justify-center gap-8 phone:gap-2 fold:gap-1">
+                        <i class="bi bi-bag h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
+                        <i class="bi bi-person h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
+                    </div>
+
+                    <div class="absolute bottom-8 transition-all duration-150 ease-linear bg-white p-[6px] rounded-full">
+                        <i class="bi bi-plus-lg text-2xl leading-10 text-center flex justify-center items-center bg-primary text-white transition-all duration-150 ease-linear p-4 rounded-full cursor-pointer hover:scale-105 phone:p-3 fold:p-2"></i>
+                    </div>
                 </div>
             </div>
 
@@ -127,9 +134,9 @@
                 </header>
             @endif
 
-            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] tablet:left-0 p-4 pl-0 tablet:p-0 z-0 tablet:top-0 tablet:h-[calc(100%-64px)] tablet:block">
+            <div class="home__content transition-all duration-150 ease-linear absolute h-full w-[calc(100%-320px-(16px*2))] tablet:w-full left-[calc(320px+(16px*2))] p-4 tablet:left-0 pl-0 tablet:p-0 z-0 tablet:top-16 tablet:h-[calc(100%-135px)] tablet:block">
                 <!-- Page Content -->
-                <main class="main__content bg-white w-full h-full rounded-md shadow p-4 font-mont overflow-auto tablet:rounded-none">
+                <main class="main__content bg-white w-full h-full rounded-md shadow py-4 tablet:pt-4 px-4 font-mont overflow-auto tablet:rounded-none tablet:shadow-none">
                     {{ $slot }}
                     
                 </main>
