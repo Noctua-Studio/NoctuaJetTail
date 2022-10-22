@@ -62,3 +62,20 @@ async function scrollView()
     
     
 }
+
+const profileDetails = document.getElementById("profileDetails");
+const headerMenu = document.getElementById("headerMenu");
+
+const profileDetailsImg = document.querySelector("#profileDetails img");
+const profileDetailsI = document.querySelector("#profileDetails i");
+
+profileDetails.addEventListener("click", ()=>{
+    headerMenu.classList.toggle("flex");
+    headerMenu.classList.toggle("hidden");
+
+    profileDetailsImg.classList.toggle("block");
+    profileDetailsImg.classList.toggle("hidden");
+
+    profileDetailsI.classList.toggle("flex");
+    profileDetailsI.classList.toggle("hidden");
+});
