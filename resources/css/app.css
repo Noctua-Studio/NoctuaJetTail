@@ -29,6 +29,25 @@
         }
     }
 
+    @keyframes slideinTop {
+        from {
+          margin-top: -40%;
+        }
+      
+        to {
+          margin-top: 0%;
+        }
+    }
+
+    @keyframes slideoutTop {
+        from {
+          margin-top: 0%;
+        }
+      
+        to {
+          margin-top: -40%;
+        }
+    }
 }
 
 /* menu-center =======================*/

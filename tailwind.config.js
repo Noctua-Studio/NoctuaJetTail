@@ -65,7 +65,9 @@ module.exports = {
 
             animation: {
                 'slidein': 'slidein 1s',
-                'slidein2': 'slidein2 1s'
+                'slidein2': 'slidein2 1s',
+                'slideinTop': 'slideinTop 0.5s',
+                'slideoutTop': 'slideoutTop 0.5s'
             }
         },
     },

@@ -69,13 +69,22 @@ const headerMenu = document.getElementById("headerMenu");
 const profileDetailsImg = document.querySelector("#profileDetails img");
 const profileDetailsI = document.querySelector("#profileDetails i");
 
-profileDetails.addEventListener("click", ()=>{
-    headerMenu.classList.toggle("flex");
-    headerMenu.classList.toggle("hidden");
+profileDetails.addEventListener("click", ()=> headerMenuAction(), false);
 
+async function headerMenuAction()
+{
     profileDetailsImg.classList.toggle("block");
     profileDetailsImg.classList.toggle("hidden");
 
     profileDetailsI.classList.toggle("flex");
     profileDetailsI.classList.toggle("hidden");
-});
+
+    headerMenu.classList.toggle("animate-slideoutTop");
+    headerMenu.classList.toggle("animate-slideinTop");
+    
+    await new Promise(r => setTimeout(r, 300));
+    headerMenu.classList.toggle("flex");
+    headerMenu.classList.toggle("hidden");
+
+    
+}
