@@ -2,202 +2,122 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use File;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index(){
-        /*
-        $users=User::all();
-        return view('admin.users.index')
-        ->with([
-            'users'=>$users
-        ]);
-        */
 
-        return view('admin.users.index');
+    protected $storage="storage/users/";
+    protected $variableS="user";
+    protected $variableP="users";
+    protected $viewRoutes=[
+        'index'   =>  'admin.users.index',
+        'create'  =>  'admin.users.create',
+        'edit'    =>  'admin.users.edit',
+        'show'    =>  'admin.users.show',
+    ];
+    protected $files=[
+        '',
+    ];
+
+
+    public function index()
+    {
+        $data=User::all();
+        return view($this->viewRoutes['index'])->with(
+            [
+                $this->variableP=>$data
+            ]
+        );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(){
-        /*
-        return view('admin.users.create');
-        */
+    public function create()
+    {
+        return view($this->viewRoutes['create']);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request){
-        /*
-        $validator = Validator::make($request->all(), [
-            'name'=> 'required',
-            'email'=> 'required|email|unique:users',
-            'password'=> ['required','confirmed','min:8','max:50', Password::min(8)->mixedCase()->numbers()->symbols()->uncompromised(),],
-            'role' => 'required',
-            'imagen' => 'required|file|mimes:png,jpg,jpeg,svg,webp|max:10240',
-        ]);
-    
-        if ($validator->fails()) {
-            // For example:
-            return redirect()
-                    ->back()
-                    ->withErrors($validator)
-                    ->withInput();
-    
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        foreach($this->files as $file){
+            $newFile=$request->file($file);
+            $extension=$newFile->getClientOriginalExtension();
+            $fileName=$file.date('YmdHis').'.'.$extension;
+            $newFile->move($this->storage, $fileName);
+            $data[$file]=$fileName;
         }
 
-        $user = new User();
-        $user->name=$request->get('name');
-        $user->email=$request->get('email');
-        $user->password=$request->get('password');
-        $user->role=$request->get('role');
+        User::create($data);
 
-        if($request->hasfile('imagen')){
-            $ruta='storage/profile_pictures/';
-            $imagen=$request->file('imagen');
-            $name=$imagen->getClientOriginalName();
-
-            $imagen->move($ruta,$name);
-            $user->image=$name;
-        }
-        
-        $user->save();
-        return view('admin.inicio');
-        */
+        return redirect()->action([UsersController::class,'index']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id){
-        /*
-        $user=User::find($id);
-        return view('admin.users.show')
-        ->with([
-            'user'=>$user
-        ]);
-        */
+    public function show($id)
+    {
+        $data = User::find($id);
+        return view($this->viewRoutes['show'])->with(
+            [
+                $this->variableS=>$data
+            ]
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        /*
-        $user = User::find($id);
-        return view('admin.users.editProfile')
-        ->with([
-            'user'=>$user
-        ]);
-        */
+        $data = User::find($id);
+        return view($this->viewRoutes['edit'])->with(
+            [
+                $this->variableS=>$data
+            ]
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update($id,Request $request)
+
+    public function update(Request $request, $id)
     {
-        /*
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'image'=> 'file|mimes:png,jpg,jpeg,svg,webp|max:10240'
-        ]);
-    
-        if ($validator->fails()) {
-            // For example:
-            return redirect()
-                    ->back()
-                    ->withErrors($validator)
-                    ->withInput();
+        $input=$request->all();
+        $data=User::find($id);
+
+        foreach($this->files as $file){
+            if($request->hasFile($file))
+            {
+                $oldFile=$this->storage.$data->{$file};
+                File::delete(public_path($oldFile));
+                
+                $newFile=$request->file($file);
+                $extension=$newFile->getClientOriginalExtension();
+                //Nombre de imagen en base de datos
+                $fileName=$file.date('YmdHis').'.'.$extension;
+                
+                $newFile->move($this->storage, $fileName);
+                $input[$file]=$fileName;
+            }
+            else{
+                unset($input[$file]);
+            }
         }
 
-        $user=User::find($id);
+        $data->update($input);
 
-        $user->name=$request->get('name');
-
-        if($request->hasfile('image')){
-
-            $ruta='storage/profile_pictures/';
-            $file=$ruta.$user->image;
-            
-            File::delete(public_path($file));
-
-            $file=$request->file('image');
-            $name=$file->getClientOriginalName();
-
-            $file->move($ruta,$name);
-
-            $user->image=$name;
-        }
-
-        $user->save();
-        return view('admin.users.administrate');
-        */
+        return redirect()->action([UsersController::class,'index']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function predestroy($id)
-    {
-        /*
-        $user=User::find($id);
-        return view('admin.users.predestroy')
-        ->with([
-            'user'=>$user
-        ]);
-        */
-    }
-
-        /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        /*
-        $user=User::find($id);
-        
-        $file="storage/profile_pictures/".$user->image;
-        File::delete(public_path($file));
+        $data=User::find($id);
 
-        $user->delete();
+        foreach($this->files as $file){
+            $delete=$this->storage.$data->{$file};
+            File::delete($delete);
+        }
 
-        return redirect()->to(action([UserController::class,'index']));
-        */
+        $data->deleteTranslations();
+        $data->delete();
+
+        return redirect()->to(action([UsersController::class,'index']));
     }
 }
-
