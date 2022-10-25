@@ -16,4 +16,4 @@
         <a href="" class="leading-[60px] text-center text-lg text-red-500 hover:bg-slate-200 transition-all duration-150">Cerrar Sesión</a>
     </div>
 
-    <h1 class="text-3xl font-semibold tablet:text-xl">Inicio</h1>
+    <h1 class="text-3xl font-semibold tablet:text-xl">{{$slot}}</h1>

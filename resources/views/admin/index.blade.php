@@ -2,8 +2,7 @@
 <x-app-layout>
     <div class="flex flex-col">
         
-        <x-admin.header>    
-        </x-admin.header>  
+        <x-admin.header>Inicio</x-admin.header>  
 
         <div class="flex flex-col gap-8 mt-4">
             <div class="inicio bg-secondary flex gap-12 flex-wrap p-8 w-full rounded-md justify-between phone:gap-6">

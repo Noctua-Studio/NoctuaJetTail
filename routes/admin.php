@@ -15,16 +15,13 @@ Route::middleware([
     
             Route::get('/home', function() {
                 return view('admin.index');
-            })->name('home-admin');
+            })->name('home');
     
             //Edición
-            Route::name('edition.')->group(function(){
     
                 //Control de usuarios
-                Route::resource('/usuarios', UserController::class)
-                ->names('users');
-    
-            });
+            Route::resource('/usuarios', UserController::class)
+            ->names('users');
         });
         
     });

@@ -46,7 +46,7 @@
                         </li>
                         <div class="sidebar__items pr-1 h-[calc(100%-150px)] w-full absolute top-16 overflow-y-auto overflow-x-hidden">
                         <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="#">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="{{route('admin.home')}}">
                                 <i class="bi bi-house-door-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
                                 <span class="links__name">Inicio</span>
                             </a>
@@ -78,7 +78,7 @@
                         </li>
     
                         <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium">
-                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="{{route('users')}}">
+                            <a class="text-gray-900 flex items-center transition-all duration-100 ease-linear rounded-md hover:bg-primary hover:text-white" href="{{route('admin.users.index')}}">
                                 <i class="bi bi-person-fill h-12 min-w-[48px] rounded-md leading-10 text-center flex justify-center items-center"></i>
                                 <span class="links__name">Usuarios</span>
                             </a>
