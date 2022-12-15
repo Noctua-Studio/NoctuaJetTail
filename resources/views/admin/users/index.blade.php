@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between tablet:bg-shadeWhite h-32 tablet:h-[70px]">
+    <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between h-32 tablet:h-[70px]">
         <x-admin.header>Usuarios</x-admin.header>  
 
         <x-admin.addBtn></x-admin.addBtn>  
@@ -29,15 +29,15 @@
               <td class="manager-table__data manager-table__option" data-label="Ver"><a href="{{route('admin.users.show',$user->id)}}"><i class="bi bi-search"></i></a></td>
             </tr>   
             @else
-            <tr class="manager-table__row p-1 even:bg-gray-100 h-16 text-center tablet:border-2">
-              <td class="manager-table__data px-5 py-1" scope="row" data-label="Id">{{$user->id}}</td>
-              <td class="manager-table__data px-5 py-1" scope="row" data-label="Nombre">{{$user->name}}</td>
-              <td class="manager-table__data px-5 py-1" data-label="Correo">{{$user->email}}</td>
-              <td class="manager-table__data px-5 py-1" data-label="Rol">{{$user->role}}</td>
-              <td class="manager-table__data px-5 py-1" data-label="Imagen"><img class="manager-table__img" src="{{asset('storage/profile_pictures/'.$user->image)}}" alt="Imagen de usuario"></td>
+            <tr class="manager-table__row p-1 even:bg-gray-100 h-16 text-center tablet:border-2 tablet:block tablet:h-max tablet:rounded-md mt-5">
+              <td class="manager-table__data px-5 py-1 tablet:border-b-[1px] tablet:block tablet:text-base phone:text-sm tablet:text-right s-phone:px-2 tablet:before:[content:attr(data-label)] tablet:before:text-left tablet:before:mb-3 tablet:before:block tablet:before:font-bold tablet:before:uppercase" scope="row" data-label="Id">{{$user->id}}</td>
+              <td class="manager-table__data px-5 py-1 tablet:border-b-[1px] tablet:block tablet:text-base phone:text-sm tablet:text-right s-phone:px-2 tablet:before:[content:attr(data-label)] tablet:before:text-left tablet:before:mb-3 tablet:before:block tablet:before:font-bold tablet:before:uppercase" scope="row" data-label="Nombre">{{$user->name}}</td>
+              <td class="manager-table__data px-5 py-1 tablet:border-b-[1px] tablet:block tablet:text-base phone:text-sm tablet:text-right s-phone:px-2 tablet:before:[content:attr(data-label)] tablet:before:text-left tablet:before:mb-3 tablet:before:block tablet:before:font-bold tablet:before:uppercase" data-label="Correo">{{$user->email}}</td>
+              <td class="manager-table__data px-5 py-1 tablet:border-b-[1px] tablet:block tablet:text-base phone:text-sm tablet:text-right s-phone:px-2 tablet:before:[content:attr(data-label)] tablet:before:text-left tablet:before:mb-3 tablet:before:block tablet:before:font-bold tablet:before:uppercase" data-label="Rol">{{$user->role}}</td>
+              <td class="manager-table__data px-5 py-1 tablet:border-b-[1px] tablet:block tablet:text-base phone:text-sm tablet:text-right s-phone:px-2 tablet:before:[content:attr(data-label)] tablet:before:text-left tablet:before:mb-3 tablet:before:block tablet:before:font-bold tablet:before:uppercase" data-label="Imagen"><img class="manager-table__img" src="{{asset('storage/profile_pictures/'.$user->image)}}" alt="Imagen de usuario"></td>
   
-              <x-admin.optionTableBtn route="#"></x-admin.optionTableBtn>
-              <x-admin.optionTableBtn type="edit" bgColor="bg-complementary" route="#"></x-admin.optionTableBtn>
+              <x-admin.optionTableBtn route="#">Ver</x-admin.optionTableBtn>
+              <x-admin.optionTableBtn type="edit" bgColor="bg-complementary" route="#">Editar</x-admin.optionTableBtn>
             </tr>
             
             @endif
