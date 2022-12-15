@@ -1,19 +1,20 @@
 <x-app-layout>
-    <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -mt-4 z-20 tablet:flex-row tablet:justify-between tablet:bg-shadeWhite h-32">
+    <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between tablet:bg-shadeWhite h-32 tablet:h-[70px]">
         <x-admin.header>Usuarios</x-admin.header>  
 
-        <a class="manager-table__add bg-secondary flex w-28 h-10 items-center justify-center rounded-md text-darken gap-2 s-phone:w-10" href=""><p class="s-phone:hidden">Agregar</p> <i class="bi bi-plus-lg"></i></a>
+        <x-admin.addBtn></x-admin.addBtn>  
       
     </div>
     <table class="w-full">
-      <thead class="manager-table__headers mt-5 bg-shadeWhite w-full h-10 text-gray-600 font-light sticky top-28">
-        <tr class="manager-table__row ">
+      <thead class="manager-table__headers mt-5 bg-shadeWhite w-full h-10 text-gray-600 font-light sticky top-28 tablet:hidden">
+        <tr class="manager-table__row">
+          <th class="manager-table__header border-collapse rounded-tl-md overflow-hidden" scope="col">Id</th>
           <th class="manager-table__header" scope="col">Nombre</th>
           <th class="manager-table__header" scope="col">Correo</th>
-          <th class="manager-table__header" scope="col">Role</th>
+          <th class="manager-table__header" scope="col">Rol</th>
           <th class="manager-table__header" scope="col">Imagen</th>
           <th class="manager-table__header" scope="col">Ver</th>
-          <th class="manager-table__header" scope="col">Editar</th>
+          <th class="manager-table__header border-collapse rounded-tr-md overflow-hidden" scope="col">Editar</th>
         </tr>
       </thead>
         <tbody class="manager-table__body">
@@ -28,15 +29,15 @@
               <td class="manager-table__data manager-table__option" data-label="Ver"><a href="{{route('admin.users.show',$user->id)}}"><i class="bi bi-search"></i></a></td>
             </tr>   
             @else
-            <tr class="manager-table__row p-1 even:bg-gray-100 h-14 text-center">
-              <td class="manager-table__data" scope="row" data-label="Nombre">{{$user->name}}</td>
-              <td class="manager-table__data" data-label="Correo">{{$user->email}}</td>
-              <td class="manager-table__data" data-label="Empresa">{{$user->role}}</td>
-              <td class="manager-table__data" data-label="Imagen"><img class="manager-table__img" src="{{asset('storage/profile_pictures/'.$user->image)}}" alt="Imagen de usuario"></td>
+            <tr class="manager-table__row p-1 even:bg-gray-100 h-16 text-center tablet:border-2">
+              <td class="manager-table__data px-5 py-1" scope="row" data-label="Id">{{$user->id}}</td>
+              <td class="manager-table__data px-5 py-1" scope="row" data-label="Nombre">{{$user->name}}</td>
+              <td class="manager-table__data px-5 py-1" data-label="Correo">{{$user->email}}</td>
+              <td class="manager-table__data px-5 py-1" data-label="Rol">{{$user->role}}</td>
+              <td class="manager-table__data px-5 py-1" data-label="Imagen"><img class="manager-table__img" src="{{asset('storage/profile_pictures/'.$user->image)}}" alt="Imagen de usuario"></td>
   
-              <td class="manager-table__data manager-table__option" data-label="Ver"><a class="bg-secondary p-3 rounded-md" href=""><i class="bi bi-search"></i></a></td>
-              <td class="manager-table__data manager-table__option" data-label="Editar"><a class="bg-complementary p-3 rounded-md" href=""><i class="bi bi-pencil"></i></a></td>
-              
+              <x-admin.optionTableBtn route="#"></x-admin.optionTableBtn>
+              <x-admin.optionTableBtn type="edit" bgColor="bg-complementary" route="#"></x-admin.optionTableBtn>
             </tr>
             
             @endif
