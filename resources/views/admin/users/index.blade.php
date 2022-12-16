@@ -5,7 +5,7 @@
         <x-admin.addBtn></x-admin.addBtn>  
       
     </div>
-    <table class="w-full">
+    <table class="w-full phone:mb-10">
       <thead class="manager-table__headers mt-5 bg-shadeWhite w-full h-10 text-gray-600 font-light sticky top-28 tablet:hidden">
         <tr class="manager-table__row">
           <th class="manager-table__header border-collapse rounded-tl-md overflow-hidden" scope="col">Id</th>
@@ -44,7 +44,7 @@
             @endforeach
     </table>
 
-    <div class="bg-white block p-4 sticky -bottom-4 -left-4 -right-4 -mb-4 -mr-4 -ml-4">
+    <div class="bg-white block p-4 sticky -bottom-4 -left-4 -right-4 -mb-4 -mr-4 -ml-4 phone:absolute phone:-bottom-4 phone:left-0 phone:right-0 phone:m-0 phone:pt-2">
       {{$users->links('pagination::tailwind')}}
     </div>
  

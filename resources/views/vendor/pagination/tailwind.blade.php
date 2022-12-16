@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-end relative bottom-0 right-0">
+    <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-end phone:justify-center relative bottom-0 right-0">
         <div class="hidden justify-between flex-1 sm:hidden">
             @if ($paginator->onFirstPage())
                 <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md">
@@ -43,8 +43,8 @@
                 </p>
             </div>
 
-            <div class="">
-                <span class="relative z-0 inline-flex gap-4 rounded-md">
+            <div class="phone:w-full">
+                <span class="relative z-0 inline-flex gap-4 rounded-md phone:justify-between phone:w-full">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())
                         <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
@@ -61,6 +61,24 @@
                             </svg>
                         </a>
                     @endif
+
+                    <div class="hidden phone:block">
+                        <p class="text-xs text-gray-700 leading-5 font-mont">
+                            @if ($paginator->firstItem())
+                                <span class="font-medium">{{ $paginator->firstItem() }}</span>
+                                a
+                                {{-- {!! __('to') !!} --}}
+                                <span class="font-medium">{{ $paginator->lastItem() }}</span>
+                            @else
+                                {{ $paginator->count() }}
+                            @endif
+                            de
+                            {{-- {!! __('of') !!} --}}
+                            <span class="font-medium">{{ $paginator->total() }}</span>
+                            registros
+                            {{-- {!! __('results') !!} --}}
+                        </p>
+                    </div>
 
                     <div class="relative z-0 inline-flex gap-0 shadow-sm rounded-md phone:hidden">
                         {{-- Pagination Elements --}}
