@@ -27,7 +27,6 @@
 
         <div class="min-h-screen bg-slate-200 tablet:bg-white">
             
-
             <div class="sidebar fixed top-0 left-0 h-[calc(100%-(16px*2))] w-80 bg-white py-2 px-3 transition-all duration-150 ease-linear m-4 rounded-md shadow z-50 tablet:hidden">
                 <div class="logo__content">
                     <div class="logo text-darken flex gap-2 h-12 w-full items-center opacity-100">
@@ -102,7 +101,14 @@
                             </a>
                         </div>
 
-                        <i class="bi bi-box-arrow-right absolute left-[88%] bottom-[12px] -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md cursor-pointer text-center hover:text-red-600" id="log_out"></i>
+                        <form method="POST" action="{{ route('logout') }}" x-data>
+                            @csrf
+                            <a href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                
+                                <i class="bi bi-box-arrow-right absolute left-[88%] bottom-[12px] -translate-x-2/4 min-w-[50px] leading-10 text-xl rounded-md cursor-pointer text-center hover:text-red-600" id="log_out"></i>
+                            </a>
+                        </form>
+                        
                     </div>
                 </div>
             </div>

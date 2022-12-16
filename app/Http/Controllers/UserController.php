@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $data=User::all();
+        $data=User::paginate(5);
         return view($this->viewRoutes['index'])->with(
             [
                 $this->variableP=>$data
