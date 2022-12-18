@@ -3,7 +3,7 @@
         <x-admin.header>Crear nuevo usuario</x-admin.header>  
     </div>
 
-    <div class="w-full font-mont">
+    <div class="w-full font-mont mb-2">
         <form action="#" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="view__container grid grid-cols-[40%_calc(60%-3rem)] gap-10 laptop:grid-cols-[50%_calc(50%-2rem)] laptop:gap-6 tablet:grid-cols-1 tablet:gap-4">
@@ -49,10 +49,11 @@
                         {!! implode('', $errors->all('<div>:message</div>')) !!}
                     @endif
                 </div>
-                <img class="view__img mt-5 h-fit mr-2 w-full" id="preview" src="" alt="Imagen de Usuario">
+                <img class="view__img mt-5 max-h-[500px] mr-2" id="preview" src="" alt="Imagen de Usuario">
             </div>
     
-            <input class="login__button nta-btn-envieronmental" type="submit" value="Crear Usuario" name="enviar">
+            
+            <input class="login__button nta-btn-envieronmental bg-primary text-white border-none transition-all duration-100 ease-linear w-fit text-center px-7 py-3 rounded-md select-none font-mont font-bold text-lg mt-5 tablet:w-full cursor-pointer hover:scale-105 hover:brightness-110 phone:h-12" type="submit" value="Crear Usuario" name="enviar">
         </form>
     </div>
 
