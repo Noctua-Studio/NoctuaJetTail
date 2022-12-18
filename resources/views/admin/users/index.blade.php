@@ -2,7 +2,7 @@
     <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between h-32 tablet:h-[70px]">
         <x-admin.header>Usuarios</x-admin.header>  
 
-        <x-admin.addBtn></x-admin.addBtn>  
+        <x-admin.addBtn route="{{route('admin.users.create')}}"></x-admin.addBtn>  
       
     </div>
     <table class="w-full phone:mb-10">
