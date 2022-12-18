@@ -6,7 +6,7 @@
     <div class="w-full font-mont">
         <form action="#" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="view__container flex gap-12">
+            <div class="view__container grid grid-cols-[40%_calc(60%-3rem)] gap-10 laptop:grid-cols-[50%_calc(50%-2rem)] laptop:gap-6 tablet:grid-cols-1 tablet:gap-4">
                 <div>
                     <label class="view__label text-base font-medium block mt-3 mb-2" for="nombre">Nombre</label>
                     <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" type="text" placeholder="Nombre" name="name" id="name">
@@ -49,10 +49,12 @@
                         {!! implode('', $errors->all('<div>:message</div>')) !!}
                     @endif
                 </div>
-                <img class="view__img" id="preview" src="" alt="Imagen de Usuario">
+                <img class="view__img mt-5 h-fit mr-2 w-full" id="preview" src="" alt="Imagen de Usuario">
             </div>
     
             <input class="login__button nta-btn-envieronmental" type="submit" value="Crear Usuario" name="enviar">
         </form>
     </div>
+
+    <script src="{{asset('js/admin/preview.js')}}"></script>
 </x-app-layout>
