@@ -49,7 +49,7 @@
                         {!! implode('', $errors->all('<div>:message</div>')) !!}
                     @endif
                 </div>
-                <img class="view__img mt-5 max-h-[500px] mr-2" id="preview" src="" alt="Imagen de Usuario">
+                <img class="view__img mt-5 max-h-[500px] mr-2 rounded-md" id="preview" src="" alt="Imagen de Usuario">
             </div>
     
             
