@@ -1,61 +1,47 @@
 <x-app-layout>
-    <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between h-16 tablet:h-[70px]">
-         
-    </div>
+<div class="w-full h-full">    
+    <x-admin.header>
+        <x-slot name='title'>Agregar usuario</x-slot>
+    </x-admin.header>
 
-    <div class="w-full font-mont mb-2">
+    <x-admin.formContainer>
         <form action="#" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="view__container grid grid-cols-[40%_calc(60%-3rem)] gap-10 laptop:grid-cols-[50%_calc(50%-2rem)] laptop:gap-6 tablet:grid-cols-1 tablet:gap-4">
-                <div>
-                    <label class="view__label text-base font-medium block mt-3 mb-2" for="nombre">Nombre</label>
-                    <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" type="text" placeholder="Nombre" name="name" id="name">
-                    @error('name')
-                        <p>{{$message}}</p>
-                    @enderror
-                    <label class="view__label text-base font-medium block mt-3 mb-2" for="email">Email</label>
-                    <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" type="email" placeholder="Email" name="email" id="email">
-                    @error('email')
-                        <p>{{$message}}</p>
-                    @enderror
-                    <label class="view__label text-base font-medium block mt-3 mb-2" for="password">Contraseña</label>
-                    <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" type="password" placeholder="Contraseña" name="password" id="password">
-                    <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 mt-2 w-full" type="password" placeholder="Confirmar Contraseña" name="password_confirmation" id="password_confirmation">
-                    @error('password')
-                        <p>{{$message}}</p>
-                    @enderror
-                    <label class="view__label text-base font-medium block mt-3 mb-2" for="role">Rol</label>
-                    <select class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" name="role">>
-                        <option class="" disabled selected hidden value="" selected>Rol</option>
-                        <option value="editor">Editor</option>
-                        <option value="contact">Patrocinios</option>
-                        <option value="registration">Inscripciones</option>
-                        <option value="general">General</option>
-                    </select>
-                    @error('role')
-                        <p>{{$message}}</p>
-                    @enderror
-    
-                    <label class="view__label text-base font-medium block mt-3 mb-2" for="image">Imagen</label>
-                    <input class="view__input border-0 bg-shadeWhite rounded-md  p-3 transition-all ease-linear duration-100 m-0 w-full" type="file" accept="image/*" name="imagen" id="imagen">
-                    
-                    <input type="hidden" id="imagenh" value="{{asset('storage/placeholder.png')}}">
-    
-                    @error('image')
-                        <p>{{$message}}</p>
-                    @enderror
-    
-                    @if($errors->any())
-                        {!! implode('', $errors->all('<div>:message</div>')) !!}
-                    @endif
-                </div>
-                <img class="view__img mt-5 max-h-[500px] mr-2 rounded-md" id="preview" src="" alt="Imagen de Usuario">
-            </div>
-    
-            
-            <input class="login__button nta-btn-envieronmental bg-primary text-white border-none transition-all duration-100 ease-linear w-fit text-center px-7 py-3 rounded-md select-none font-mont font-bold text-lg mt-5 tablet:w-full cursor-pointer hover:scale-105 hover:brightness-110 phone:h-12" type="submit" value="Crear Usuario" name="enviar">
-        </form>
-    </div>
+            <x-admin.formWithImg>
+                <x-admin.label>Nombre</x-admin.label>
+                <x-admin.input placeholder="Nombre" name="name"></x-admin.input>
+                @error('name')
+                <x-admin.errorInput>{{$message}}</x-admin.errorInput>
+                @enderror
 
+                <x-admin.label>Email</x-admin.label>
+                <x-admin.input placeholder="Correo" name="email" type="email"></x-admin.input>
+                @error('email')
+                <x-admin.errorInput>{{$message}}</x-admin.errorInput>
+                @enderror
+
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                @error('password')
+                <x-admin.errorInput>{{$message}}</x-admin.errorInput>
+                @enderror
+
+                <x-admin.label>Imagen</x-admin.label>
+                <x-admin.inputFile name="imagen" accept="image/*" id="imagen"></x-admin.inputFile>
+                <input type="hidden" id="imagenh" value="{{asset('storage/placeholder.png')}}">
+                @error('image')
+                <x-admin.errorInput>{{$message}}</x-admin.errorInput>
+                @enderror
+
+                @if($errors->any())
+                {!! implode('', $errors->all('<x-admin.errorInputs>:message</x-admin.errorInputs>')) !!}
+                @endif
+            </x-admin.formWithImg>
+
+            <x-admin.sendBtn>Crear usuario</x-admin.sendBtn>
+        </form>
+    </x-admin.formContainer>
+</div>
     <script src="{{asset('js/admin/preview.js')}}"></script>
 </x-app-layout>
