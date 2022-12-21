@@ -11,6 +11,8 @@
         <i class="bi bi-search"></i>
         @elseif ($type == 'edit')
         <i class="bi bi-pencil"></i>
+        @elseif ($type == 'role')
+        <i class="bi bi-person-gear"></i>
         @elseif ($type == 'delete')
         <i class="bi bi-x-lg"></i>
         @endif

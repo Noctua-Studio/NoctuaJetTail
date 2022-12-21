@@ -22,6 +22,8 @@ Route::middleware([
                 //Control de usuarios
             Route::resource('/usuarios', UserController::class)
             ->names('users');
+
+            Route::get('/usuarios/roleEdit/{id}', [UserController::class,'roleEdit'])->name('users.roleEdit');
         });
         
     });

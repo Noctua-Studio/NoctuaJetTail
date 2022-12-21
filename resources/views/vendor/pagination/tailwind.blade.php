@@ -127,4 +127,10 @@
             </div>
         </div>
     </nav>
+@else
+<div class="flex mt-2 justify-start tablet:hidden">
+    <p class="text-sm text-gray-500 leading-5 font-mont">
+        <span class="font-medium">Mostrando todos los registros</span>
+    </p>
+</div>
 @endif

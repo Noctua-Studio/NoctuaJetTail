@@ -1,0 +1,1 @@
+<span class="font-mont text-lg text-gray-500 font-medium w-full flex mt-4 justify-center h-full">No hay registros</span>

@@ -23,7 +23,7 @@ class UserController extends Controller
         '',
     ];
 
-
+    
     public function index()
     {
         $data=User::paginate(5);
@@ -74,6 +74,12 @@ class UserController extends Controller
                 $this->variableS=>$data
             ]
         );
+    }
+
+    public function roleEdit($id)
+    {
+        $data = User::find($id);
+        return view('admin.users.roleEdit')->with('user',$data);
     }
 
 

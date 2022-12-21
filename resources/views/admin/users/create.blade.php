@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="bg-white flex flex-col gap-4 -mx-4 p-4 sticky -top-4 -left-4 -mt-4 z-20 tablet:flex-row tablet:justify-between h-16 tablet:h-[70px]">
-        <x-admin.header>Crear nuevo usuario</x-admin.header>  
+         
     </div>
 
     <div class="w-full font-mont mb-2">
