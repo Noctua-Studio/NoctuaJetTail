@@ -2,9 +2,11 @@
     
     <x-admin.header create="true" buscar='true' buscarPlaceholder="Buscar usuario">
         <x-slot name='title'>Usuarios</x-slot>
-        <x-slot name="createRoute">
-            <x-admin.addBtn route="{{route('admin.users.create')}}"></x-admin.addBtn>
-        </x-slot>
+        @can('users.create')
+            <x-slot name="createRoute">
+                <x-admin.addBtn route="{{route('admin.users.create')}}"></x-admin.addBtn>
+            </x-slot>
+        @endcan
     </x-admin.header>
     
     @if($users->count())

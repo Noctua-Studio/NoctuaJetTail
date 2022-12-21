@@ -7,8 +7,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use File;
 
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller
 {
+    //Protección de rutas con roles
+    public function __construct()
+    {
+        //Ponemos el permiso y luego el método que protege
+        $this->middleware('can:users.index')->only('index');
+    }
 
     protected $storage="storage/users/";
     protected $variableS="user";
@@ -26,12 +34,7 @@ class UserController extends Controller
     
     public function index()
     {
-        $data=User::paginate(5);
-        return view($this->viewRoutes['index'])->with(
-            [
-                $this->variableP=>$data
-            ]
-        );
+        return view($this->viewRoutes['index']);
     }
 
     public function create()
@@ -76,10 +79,20 @@ class UserController extends Controller
         );
     }
 
+    //Método para edición de roles GET
     public function roleEdit($id)
     {
-        $data = User::find($id);
-        return view('admin.users.roleEdit')->with('user',$data);
+        $roles = Role::all();
+        $user = User::find($id);
+        return view('admin.users.roleEdit', compact('user', 'roles'));
+    }
+
+    //Método para edición de roles POST
+    public function roleUpdate(Request $request, User $user)
+    {
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('admin.users.roleEdit', $user->id)->with('info', 'Se asginaron los roles correctamente');
     }
 
 
