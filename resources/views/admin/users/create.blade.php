@@ -5,7 +5,7 @@
     </x-admin.header>
 
     <x-admin.formContainer>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.users.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <x-admin.formWithImg>
                 <x-admin.label>Nombre</x-admin.label>
@@ -24,13 +24,6 @@
                 <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
                 <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
                 @error('password')
-                <x-admin.errorInput>{{$message}}</x-admin.errorInput>
-                @enderror
-
-                <x-admin.label>Imagen</x-admin.label>
-                <x-admin.inputFile name="imagen" accept="image/*" id="imagen"></x-admin.inputFile>
-                <input type="hidden" id="imagenh" value="{{asset('storage/placeholder.png')}}">
-                @error('image')
                 <x-admin.errorInput>{{$message}}</x-admin.errorInput>
                 @enderror
 

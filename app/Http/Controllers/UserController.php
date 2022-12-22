@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\Hash;
 
 use Spatie\Permission\Models\Role;
 
@@ -26,9 +27,11 @@ class UserController extends Controller
         'create'  =>  'admin.users.create',
         'edit'    =>  'admin.users.edit',
         'show'    =>  'admin.users.show',
+        'roleEdit' => 'admin.users.roleEdit',
+
     ];
     protected $files=[
-        '',
+        
     ];
 
     
@@ -46,17 +49,19 @@ class UserController extends Controller
     {
         $data = $request->all();
 
-        foreach($this->files as $file){
-            $newFile=$request->file($file);
-            $extension=$newFile->getClientOriginalExtension();
-            $fileName=$file.date('YmdHis').'.'.$extension;
-            $newFile->move($this->storage, $fileName);
-            $data[$file]=$fileName;
-        }
+        // foreach($this->files as $file){
+        //     $newFile=$request->file($file);
+        //     $extension=$newFile->getClientOriginalExtension();
+        //     $fileName=$file.date('YmdHis').'.'.$extension;
+        //     $newFile->move($this->storage, $fileName);
+        //     $data[$file]=$fileName;
+        // }
 
+        unset($data->password_confirmation);
+        $data->password = Hash::make($data->password);
         User::create($data);
 
-        return redirect()->action([UsersController::class,'index']);
+        return redirect()->action([UserController::class,'index']);
     }
 
     public function show($id)
@@ -84,7 +89,7 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $user = User::find($id);
-        return view('admin.users.roleEdit', compact('user', 'roles'));
+        return view($this->viewRoutes['roleEdit'], compact('user', 'roles'));
     }
 
     //Método para edición de roles POST
@@ -92,7 +97,7 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect()->route('admin.users.roleEdit', $user->id)->with('info', 'Se asginaron los roles correctamente');
+        return redirect()->route($this->viewRoutes['roleEdit'], $user->id)->with('info', 'Se asginaron los roles correctamente');
     }
 
 
@@ -101,28 +106,29 @@ class UserController extends Controller
         $input=$request->all();
         $data=User::find($id);
 
-        foreach($this->files as $file){
-            if($request->hasFile($file))
-            {
-                $oldFile=$this->storage.$data->{$file};
-                File::delete(public_path($oldFile));
+        // foreach($this->files as $file){
+        //     if($request->hasFile($file))
+        //     {
+        //         $oldFile=$this->storage.$data->{$file};
+        //         File::delete(public_path($oldFile));
                 
-                $newFile=$request->file($file);
-                $extension=$newFile->getClientOriginalExtension();
-                //Nombre de imagen en base de datos
-                $fileName=$file.date('YmdHis').'.'.$extension;
+        //         $newFile=$request->file($file);
+        //         $extension=$newFile->getClientOriginalExtension();
+        //         //Nombre de imagen en base de datos
+        //         $fileName=$file.date('YmdHis').'.'.$extension;
                 
-                $newFile->move($this->storage, $fileName);
-                $input[$file]=$fileName;
-            }
-            else{
-                unset($input[$file]);
-            }
-        }
-
+        //         $newFile->move($this->storage, $fileName);
+        //         $input[$file]=$fileName;
+        //     }
+        //     else{
+        //         unset($input[$file]);
+        //     }
+        // }
+        unset($input->password_confirmation);
+        $input['password'] = Hash::make($input['password']);
         $data->update($input);
 
-        return redirect()->action([UsersController::class,'index']);
+        return redirect()->action([UserController::class,'index']);
     }
 
     public function destroy($id)
@@ -137,6 +143,6 @@ class UserController extends Controller
         $data->deleteTranslations();
         $data->delete();
 
-        return redirect()->to(action([UsersController::class,'index']));
+        return redirect()->to(action([UserController::class,'index']));
     }
 }

@@ -31,7 +31,7 @@
                     <x-admin.tableImage label="Imagen" route="{{asset('storage/' . $user->profile_photo_path)}}">
                     </x-admin.tableImage>
 
-                    <x-admin.optionTableBtn route="#">
+                    <x-admin.optionTableBtn route="{{route('admin.users.show', $user->id)}}">
                         Ver
                     </x-admin.optionTableBtn>
 
@@ -39,7 +39,7 @@
                         Rol
                     </x-admin.optionTableBtn>
 
-                    <x-admin.optionTableBtn route="#" type="edit" bgColor="bg-complementary" >
+                    <x-admin.optionTableBtn route="{{route('admin.users.edit', $user->id)}}" type="edit" bgColor="bg-complementary" >
                         Editar
                     </x-admin.optionTableBtn>
                 </x-admin.tableRow>
