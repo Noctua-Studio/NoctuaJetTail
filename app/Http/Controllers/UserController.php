@@ -69,7 +69,7 @@ class UserController extends Controller
         // }
 
         unset($data->password_confirmation);
-        $data->password = Hash::make($data->password);
+        $input['password'] = Hash::make($data['password']);
         User::create($data);
 
         return redirect()->action([UserController::class,'index']);

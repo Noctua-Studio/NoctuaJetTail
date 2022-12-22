@@ -7,7 +7,7 @@
     <x-admin.formContainer>
         <form action="{{route('admin.users.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <x-admin.formWithImg>
+            <x-admin.form>
                 <x-admin.label>Nombre</x-admin.label>
                 <x-admin.input placeholder="Nombre" name="name"></x-admin.input>
                 @error('name')
@@ -30,9 +30,12 @@
                 @if($errors->any())
                 {!! implode('', $errors->all('<x-admin.errorInputs>:message</x-admin.errorInputs>')) !!}
                 @endif
-            </x-admin.formWithImg>
+            </x-admin.form>
 
-            <x-admin.sendBtn>Crear usuario</x-admin.sendBtn>
+            <x-admin.btnContainer>
+                <x-admin.btn type="cancel">Cancelar</x-admin.btn>
+                <x-admin.btn>Crear usuario</x-admin.btn>
+            </x-admin.btnContainer>
         </form>
     </x-admin.formContainer>
 </div>
