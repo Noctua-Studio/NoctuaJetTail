@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Hash;
@@ -12,12 +14,6 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    //Protección de rutas con roles
-    public function __construct()
-    {
-        //Ponemos el permiso y luego el método que protege
-        $this->middleware('can:users.index')->only('index');
-    }
 
     protected $storage="storage/users/";
     protected $variableS="user";
@@ -27,13 +23,28 @@ class UserController extends Controller
         'create'  =>  'admin.users.create',
         'edit'    =>  'admin.users.edit',
         'show'    =>  'admin.users.show',
-        'roleEdit' => 'admin.users.roleEdit',
+        'roleEdit' => 'admin.users.roleEdit'
+    ];
+    protected $permissions=[
+        'index',
+        'create',
+        'update',
+        'delete'
 
     ];
     protected $files=[
         
     ];
 
+    //Protección de rutas con roles
+    public function __construct()
+    {
+        //Ponemos el permiso y luego el método que protege
+        // $this->middleware('can:users.index')->only('index');
+        foreach ($this->permissions as $permission) {
+            $this->middleware('can:'.$this->variableP.'.'.$permission)->only($permission);
+        }
+    }
     
     public function index()
     {
@@ -45,7 +56,7 @@ class UserController extends Controller
         return view($this->viewRoutes['create']);
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         $data = $request->all();
 
@@ -101,7 +112,7 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $input=$request->all();
         $data=User::find($id);

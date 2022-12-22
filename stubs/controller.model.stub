@@ -19,10 +19,26 @@ class {{ class }} extends Controller
         'edit'    =>  'admin.edition.{{modelVariable}}s.edit',
         'show'    =>  'admin.edition.{{modelVariable}}s.show',
     ];
+    protected $permissions=[
+        'index',
+        'create',
+        'update',
+        'delete'
+
+    ];
     protected $files=[
-        '',
+        
     ];
 
+    //Protección de rutas con roles
+    public function __construct()
+    {
+        //Ponemos el permiso y luego el método que protege
+        // $this->middleware('can:users.index')->only('index');
+        foreach ($permissions as $permission) {
+            $this->middleware('can:'.$variableP.'.'.$permission)->only($permission);
+        }
+    }
 
     public function index()
     {
