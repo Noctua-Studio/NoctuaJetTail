@@ -39,5 +39,4 @@
         </form>
     </x-admin.formContainer>
 </div>
-    <script src="{{asset('js/admin/preview.js')}}"></script>
 </x-app-layout>

@@ -15,5 +15,4 @@
             </x-admin.btnContainer>
         </x-admin.viewContainerImg>
     </div>
-        <script src="{{asset('js/admin/preview.js')}}"></script>
 </x-app-layout>
