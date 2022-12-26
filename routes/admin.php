@@ -17,6 +17,14 @@ Route::middleware([
             Route::get('/home', function() {
                 return view('admin.index');
             })->middleware('can:home')->name('home');
+
+            Route::get('/sitio', function () {
+                return view('sitio');
+            })->name('sitio');
+
+            Route::get('/inscripciones', function () {
+                return view('inscripciones');
+            })->name('inscripciones');
     
             //Edición
     

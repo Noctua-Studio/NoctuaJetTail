@@ -93,7 +93,7 @@
                         <div class="profile__details opacity-100 flex">
                             <img class="h-11 w-11 object-cover rounded-md" src="{{asset('img/cube.jpg')}}" alt="">
 
-                            <a href="#" class="hover:text-primary transition-all duration-150">
+                            <a href="{{route('profile.show')}}" class="hover:text-primary transition-all duration-150">
                                 <div class="name__job ml-3">
                                     <div class="name font-semibold whitespace-nowrap">Antonio Galván</div>
                                     <div class="job text-sm">Administrador</div>
