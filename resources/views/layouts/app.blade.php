@@ -91,7 +91,7 @@
                 <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full bg-secondary rounded-b-md">
                     <div class="profile relative py-3 px-3 h-[68px] ">
                         <div class="profile__details opacity-100 flex">
-                            <img class="h-11 w-11 object-cover rounded-md" src="{{asset('img/cube.jpg')}}" alt="">
+                            <img class="h-11 w-11 object-cover rounded-md" src="{{ auth()->user()->profile_photo_url }}" alt="">
 
                             <a href="{{route('profile.show')}}" class="hover:text-primary transition-all duration-150">
                                 <div class="name__job ml-3">
