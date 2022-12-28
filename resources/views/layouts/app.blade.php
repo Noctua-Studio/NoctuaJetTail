@@ -40,7 +40,9 @@
                     <ul class="nav__list mt-5 flex flex-col gap-0 relative h-[calc(100%-60px)]">
                         <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium mb-3">
                             <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-text" id="search-btn"></i>
-                            <input class="absolute h-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900 w-[calc(100%-6px)]" type="text" id="searchInput" placeholder="Buscar">
+                            <form action="#">
+                                <input class="absolute h-full left-0 top-0 rounded-md outline-none border-none bg-slate-100 pl-12 text-lg text-gray-900 w-[calc(100%-6px)]" type="text" id="searchInput" placeholder="Buscar" name="buscarE">
+                            </form>
                             <span class="tooltip absolute h-9 w-32 bg-white shadow-md left-32 -top-2/4 -translate-x-2/4 rounded-md leading-9 text-center hover:top-2/4 opacity-0 pointer-events-none transition-all duration-300 delay-75 ease-in hidden text-primary">Buscar</span>
                         </li>
                         <div class="sidebar__items pr-1 h-[calc(100%-150px)] w-full absolute top-16 overflow-y-auto overflow-x-hidden">
@@ -152,8 +154,11 @@
                 </div>
     
                 <div class="header__menu absolute top-16 bg-white w-full left-0 h-fit flex-col justify-center shadow-md hidden animate-slideoutTop z-40" id="headerMenu">
-                    <a href="" class="leading-[60px] text-center text-lg border-b-2 border-slate-200 hover:bg-slate-200 transition-all duration-150">Gestionar Perfil</a>
-                    <a href="" class="leading-[60px] text-center text-lg text-red-500 hover:bg-slate-200 transition-all duration-150">Cerrar Sesión</a>
+                    <a href="{{route('profile.show')}}" class="leading-[60px] text-center text-lg border-b-2 border-slate-200 hover:bg-slate-200 transition-all duration-150">Gestionar Perfil</a>
+                    <form method="POST" action="{{ route('logout') }}" class="w-full block h-full" x-data>
+                        @csrf
+                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="leading-[60px] text-center text-lg text-red-500 hover:bg-slate-200 transition-all duration-150 w-full block w-full">Cerrar Sesión</a>
+                    </form>
                 </div>
             </div>
 

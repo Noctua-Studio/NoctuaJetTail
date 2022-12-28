@@ -1,6 +1,6 @@
 <x-app-layout>
 <div class="w-full h-full">
-    <x-admin.header>
+    <x-admin.header back="true">
         <x-slot name='title'>Rol de usuario</x-slot>
     </x-admin.header>
 

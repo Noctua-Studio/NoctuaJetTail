@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="w-full h-full">    
-        <x-admin.header>
+        <x-admin.header back="true">
             <x-slot name='title'>Datos de usuario</x-slot>
         </x-admin.header>
         <x-admin.viewContainerImg route="{{asset('storage/' . $user->profile_photo_path)}}">

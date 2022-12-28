@@ -1,6 +1,6 @@
 <div class="w-full h-full overflow-hidden">
     
-    <x-admin.header create="true" buscar='true' buscarPlaceholder="Buscar usuario">
+    <x-admin.header create="true" buscar='true' back="true" buscarPlaceholder="Buscar usuario">
         <x-slot name='title'>Usuarios</x-slot>
         @can('users.create')
             <x-slot name="createRoute">
