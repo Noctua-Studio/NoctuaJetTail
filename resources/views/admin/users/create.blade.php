@@ -27,6 +27,31 @@
                 <x-admin.errorInput>{{$message}}</x-admin.errorInput>
                 @enderror
 
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                <x-admin.label>Contraseña</x-admin.label>
+                <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
+                <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+
                 @if($errors->any())
                 {!! implode('', $errors->all('<x-admin.errorInputs>:message</x-admin.errorInputs>')) !!}
                 @endif
