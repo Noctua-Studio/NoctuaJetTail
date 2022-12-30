@@ -97,7 +97,7 @@
 
                             <a href="{{route('profile.show')}}" class="hover:text-primary transition-all duration-150">
                                 <div class="name__job ml-3">
-                                    <div class="name font-semibold whitespace-nowrap">Antonio Galván</div>
+                                    <div class="name font-semibold whitespace-nowrap">{{ auth()->user()->name}}</div>
                                     <div class="job text-sm">Administrador</div>
                                 </div>
                             </a>
@@ -115,21 +115,12 @@
                 </div>
             </div>
 
-            <div class="bottomBar hidden fixed bottom-0 left-0 h-16 py-2 px-3 transition-all duration-150 ease-linear shadow z-50 tablet:bg-slate-200 my-2 mx-4 tablet:flex items-end w-full ml-0 mb-0">
-
-                <div class="bottomBar__items flex items-center justify-around w-full phone:gap-16 mini:gap-14 fold:gap-12">
-                    <div class="flex w-full justify-center gap-8 phone:gap-2 fold:gap-1">
-                        <i class="bi bi-house h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
-                        <i class="bi bi-laptop h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
-                    </div>
-                    <div class="flex w-full justify-center gap-8 phone:gap-2 fold:gap-1">
-                        <i class="bi bi-bag h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
-                        <i class="bi bi-person h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i>
-                    </div>
-
-                    <div class="absolute bottom-8 transition-all duration-150 ease-linear bg-white p-[6px] rounded-full">
-                        <i class="bi bi-plus-lg text-2xl leading-10 text-center flex justify-center items-center bg-primary text-white transition-all duration-150 ease-linear p-4 rounded-full cursor-pointer hover:scale-105 phone:p-3 fold:p-2"></i>
-                    </div>
+            <div class="bottomBar hidden fixed bottom-0 left-0 h-16 py-2 px-3 transition-all duration-150 ease-linear shadow z-50 tablet:bg-secondary my-2 mx-4 tablet:flex items-end w-full ml-0 mb-0">
+                <div class="bottomBar__items flex w-full items-center justify-around gap-8 phone:gap-2 fold:gap-1">
+                    <a href=""><i class="bi bi-house h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i></a>
+                    <a href=""><i class="bi bi-laptop h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i></a>
+                    <a href=""><i class="bi bi-bag h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i></a>
+                    <a href=""><i class="bi bi-person h-12 text-2xl rounded-2xl leading-10 text-center flex justify-center items-center text-darken hover:bg-darken hover:text-white transition-all duration-150 ease-linear py-2 px-3 cursor-pointer fold:text-xl"></i></a>
                 </div>
             </div>
 
