@@ -37,7 +37,7 @@
                 </div>
 
                 
-                    <ul class="nav__list mt-5 flex flex-col gap-0 relative h-[calc(100%-60px)]">
+                    <ul class="nav__list mt-3 flex flex-col gap-0 relative h-[calc(100%-60px)]">
                         <li class="relative h-12 w-full my-0 mx-1 leading-10 font-mont font-medium mb-3">
                             <i class="bi bi-search h-12 min-w-[48px] rounded-md leading-10 text-center absolute z-40 text-gray-900 flex justify-center items-center cursor-text" id="search-btn"></i>
                             <form action="#">
@@ -90,8 +90,8 @@
                     </ul>
                 
 
-                <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full bg-secondary rounded-b-md">
-                    <div class="profile relative py-3 px-3 h-[68px] ">
+                <div class="profile__content absolute text-shadeDark bottom-0    left-0 w-full bg-secondary rounded-b-md h-[87px] flex items-center justify-between">
+                    <div class="profile relative py-3 px-3 flex justify-between w-full">
                         <div class="profile__details opacity-100 flex">
                             <img class="h-11 w-11 object-cover rounded-md" src="{{ auth()->user()->profile_photo_url }}" alt="">
 

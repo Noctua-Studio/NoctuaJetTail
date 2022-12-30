@@ -3,6 +3,7 @@
     'create' => 'false',
     'buscar' => 'false',
     'back' => 'false',
+    'backRoute',
     'buscarPlaceholder' => 'Buscar'
 ])
 
@@ -10,7 +11,7 @@
     
     <div class="flex items-center justify-between">
       @if ($back == 'true')
-      <a href="{{URL::previous()}}" class="hidden tablet:flex items-center justify-center gap-2 text-environmental hover:text-complementary duration-150 h-fit">
+      <a @if (@isset($backRoute)) href="{{$backRoute}}" @else href="{{URL::previous()}}" @endif  class="hidden tablet:flex items-center justify-center gap-2 text-environmental hover:text-complementary duration-150 h-fit">
         <i class="bi bi-arrow-left-square-fill text-4xl tablet:text-[40px]"></i>
         <span class="tablet:hidden text-lg"></span>
       </a>
@@ -26,7 +27,7 @@
 
     <div class="flex justify-between">
       @if ($back == 'true')
-      <a href="{{URL::previous()}}" class="flex items-center justify-center gap-2 text-environmental hover:text-primary duration-150 h-fit tablet:hidden">
+      <a @if (@isset($backRoute)) href="{{$backRoute}}" @else href="{{URL::previous()}}" @endif class="flex items-center justify-center gap-2 text-environmental hover:text-primary duration-150 h-fit tablet:hidden">
         <i class="bi bi-arrow-left-square-fill text-4xl tablet:text-[40px]"></i>
         <span class="tablet:hidden text-lg"></span>
       </a>

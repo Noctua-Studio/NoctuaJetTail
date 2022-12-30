@@ -10,10 +10,17 @@
             <x-admin.label>Email</x-admin.label>
             <x-admin.data>{{$user->email}}</x-admin.data>
             
+            <x-slot name='btns'>
+                <x-admin.btnContainer>
+                    <x-admin.btnSubContainer>
+                        <x-admin.btn type="cancel">Cancelar</x-admin.btn>
+                    </x-admin.btnSubContainer>
+                </x-admin.btnContainer>
+            </x-slot>
+            
+
         </x-admin.viewContainerImg>
 
-        <x-admin.btnContainer>
-            <x-admin.btn type="cancel">Cancelar</x-admin.btn>
-        </x-admin.btnContainer>
+        
     </div>
 </x-app-layout>

@@ -12,6 +12,7 @@
                 <x-admin.form>
                     <x-admin.input placeholder="Contraseña" name="password" type="password"></x-admin.input>
                     <x-admin.input placeholder="Confirmar Contraseña" name="password_confirmation" type="password"></x-admin.input>
+                    
                 </x-admin.form>
     
                 <x-admin.btnContainer>
