@@ -9,10 +9,11 @@
 
             <x-admin.label>Email</x-admin.label>
             <x-admin.data>{{$user->email}}</x-admin.data>
-
-            <x-admin.btnContainer>
-                <x-admin.btn type="cancel">Cancelar</x-admin.btn>
-            </x-admin.btnContainer>
+            
         </x-admin.viewContainerImg>
+
+        <x-admin.btnContainer>
+            <x-admin.btn type="cancel">Cancelar</x-admin.btn>
+        </x-admin.btnContainer>
     </div>
 </x-app-layout>

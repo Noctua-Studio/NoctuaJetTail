@@ -15,9 +15,12 @@
                 </x-admin.form>
     
                 <x-admin.btnContainer>
-                    <x-admin.btn type="cancel">Cancelar</x-admin.btn>
+                    
                     <x-admin.btn type="delete">Eliminar</x-admin.btn>
-                    <x-admin.btn>Guardar</x-admin.btn>
+                    <x-admin.btnSubContainer>
+                        <x-admin.btn type="cancel">Cancelar</x-admin.btn>
+                        <x-admin.btn>Guardar</x-admin.btn>
+                    </x-admin.btnSubContainer>
                 </x-admin.btnContainer>
             </form>
         </x-admin.formContainer>
