@@ -44,7 +44,7 @@
             </div>
 
             <div class="phone:w-full">
-                <span class="relative z-0 inline-flex gap-4 rounded-md phone:justify-between phone:w-full">
+                <span class="relative z-0 inline-flex gap-4 rounded-md phone:justify-between phone:items-center phone:w-full">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())
                         <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
