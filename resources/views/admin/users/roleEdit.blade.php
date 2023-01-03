@@ -1,6 +1,6 @@
 <x-app-layout>
 <div class="w-full h-full">
-    <x-admin.header>
+    <x-admin.header back="true">
         <x-slot name='title'>Rol de usuario</x-slot>
     </x-admin.header>
 
@@ -21,7 +21,12 @@
                         </div>
                     @endforeach
 
-                    {!! Form::submit('Asignar', ['class' => 'login__button nta-btn-envieronmental bg-primary text-white border-none transition-all duration-100 ease-linear w-fit text-center px-7 py-3 rounded-md select-none font-mont font-bold text-lg mt-8 tablet:w-full cursor-pointer hover:scale-105 hover:brightness-110 phone:h-12']) !!}
+                    <x-admin.btnContainer>
+                        <x-admin.btnSubContainer>
+                            {!! Form::submit('Asignar', ['class' => 'login__button nta-btn-envieronmental bg-primary text-white border-none transition-all duration-100 ease-linear w-fit text-center px-7 py-3 rounded-md select-none font-mont font-bold text-lg tablet:w-full cursor-pointer hover:scale-105 hover:brightness-110 phone:h-12']) !!}
+                        </x-admin.btnSubContainer>
+                    </x-admin.btnContainer>
+                    
                 {!! Form::close() !!}
             </div>    
         </div>

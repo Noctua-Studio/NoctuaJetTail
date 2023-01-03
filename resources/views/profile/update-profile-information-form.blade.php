@@ -1,10 +1,12 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        <h3 class="font-mont text-lg font-medium">Información de perfil</h3>
+        {{-- {{ __('Profile Information') }} --}}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        <p class="font-mont text-sm">Actualiza la información de tu perfil de usuario y correo electrónico</p>
+        {{-- {{ __('Update your account\'s profile information and email address.') }} --}}
     </x-slot>
 
     <x-slot name="form">
@@ -24,27 +26,29 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
-
+                <x-jet-label for="photo" value="Foto" />
+                
                 <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
+                <div class="mt-2 mb-2" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
+                <div class="mt-2 mb-2" x-show="photoPreview" style="display: none;">
                     <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                           x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
-                <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
+                <x-jet-secondary-button class="mt-4 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                    Seleccionar una foto
+                    {{-- {{ __('Select A New Photo') }} --}}
                 </x-jet-secondary-button>
 
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
+                        Eliminar foto
+                        {{-- {{ __('Remove Photo') }} --}}
                     </x-jet-secondary-button>
                 @endif
 
@@ -54,14 +58,14 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
+            <x-jet-label for="name" value="Nombre" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="{{ __('Email') }}" />
+            <x-jet-label for="email" value="Correo" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
 
@@ -85,11 +89,13 @@
 
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
+            Guardado
+            {{-- {{ __('Saved.') }} --}}
         </x-jet-action-message>
 
         <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
+            Guardar
+            {{-- {{ __('Save') }} --}}
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>

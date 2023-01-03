@@ -193,7 +193,7 @@
     left: calc(80px + (16px*2));
 }
 
-.sidebar__items::-webkit-scrollbar, .main__content::-webkit-scrollbar, .table__container::-webkit-scrollbar {
+.sidebar__items::-webkit-scrollbar, .main__content::-webkit-scrollbar, .table__container::-webkit-scrollbar, .form-container::-webkit-scrollbar {
     width: 4px;
     height: 5px;
 }
@@ -202,11 +202,11 @@
     width: 0;
 }
 
-.sidebar__items::-webkit-scrollbar-track, .main__content::-webkit-scrollbar-track, .table__container::-webkit-scrollbar-track {
+.sidebar__items::-webkit-scrollbar-track, .main__content::-webkit-scrollbar-track, .table__container::-webkit-scrollbar-track, .form-container::-webkit-scrollbar-track {
     background: #e5e7eb;
 }
 
 .sidebar__items::-webkit-scrollbar-thumb, .main__content::-webkit-scrollbar-thumb,
-.table__container::-webkit-scrollbar-thumb {
+.table__container::-webkit-scrollbar-thumb, .form-container::-webkit-scrollbar-thumb {
     background: #598dff;
   }

@@ -1,7 +1,9 @@
 <x-app-layout>
-
+    <x-admin.header back="true">
+        <x-slot name='title'>Agregar usuario</x-slot>
+    </x-admin.header>
     <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="flex flex-col max-w-lg py-1 px-0 font-mont tablet:max-w-full">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 
